@@ -54,13 +54,32 @@ public:
     }
 };
 
+istream &operator>>(istream &inDevice, Trung &tr)
+{
+    int a;
+    string ID, HT;
+    inDevice >> a >> ID;
+    inDevice.ignore();
+    getline(inDevice, HT);
+    tr.set(a, ID, HT);
+    return inDevice;
+}
+ostream &operator<<(ostream &outDevice, Trung &tr)
+{
+    outDevice << "Age: " << tr.getAge() << '\n';
+    outDevice << "Id: " << tr.getId() << '\n';
+    outDevice << "HomeTown: " << tr.getHomeTown() << '\n';
+    return outDevice;
+}
 int main()
 {
     Trung *tr = new Trung();
     if (tr)
     {
-        tr->input(cin);
-        tr->output(cout);
+        // tr->input(cin);
+        // tr->output(cout);
+        cin >> *tr;
+        cout << *tr;
         delete tr;
         tr = nullptr;
     }
