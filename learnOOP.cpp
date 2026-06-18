@@ -13,6 +13,22 @@ private:
     string homeTown;
 
 public:
+    // Constructors setup
+    Trung() : age(0), id("00000000"), homeTown("Undefined") {}
+    Trung(int a, string ID, string HT) : age(a), id(ID), homeTown(HT)
+    {
+        if (this->age < 0)
+            this->age = 0;
+
+        if (this->id.length() != 8)
+            this->id = "00000000";
+
+        if (this->homeTown == "")
+            this->homeTown = "Undefined";
+    }
+    Trung(string ID, string HT) : Trung(19, ID, HT) {}
+
+    // Functions
     void set(int x, string str, string place)
     {
         age = x;
@@ -52,6 +68,7 @@ public:
         outDevice << "Id: " << getId() << '\n';
         outDevice << "HomeTown: " << getHomeTown() << '\n';
     }
+    ~Trung() {}
 };
 
 istream &operator>>(istream &inDevice, Trung &tr)
@@ -74,14 +91,18 @@ ostream &operator<<(ostream &outDevice, Trung &tr)
 int main()
 {
     Trung *tr = new Trung();
+    Trung *tr1 = new Trung("12345678", "BD");
     if (tr)
     {
         // tr->input(cin);
         // tr->output(cout);
         cin >> *tr;
         cout << *tr;
+        cout << *tr1;
         delete tr;
         tr = nullptr;
+        delete tr1;
+        tr1 = nullptr;
     }
 
     cin.get();
