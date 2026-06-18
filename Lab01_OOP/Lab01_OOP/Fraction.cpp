@@ -36,35 +36,67 @@ void Fraction::simplify()
     numerator /= a;
     denominator /= a;
 }
-Fraction Fraction::plus(Fraction a)
+// Fraction Fraction::plus(Fraction a)
+// {
+//     Fraction res;
+//     res.numerator = numerator * a.denominator + denominator * a.numerator;
+//     res.denominator = denominator * a.denominator;
+
+//     return res;
+// }
+// Fraction Fraction::substract(Fraction a)
+// {
+//     Fraction res;
+//     res.numerator = numerator * a.denominator - denominator * a.numerator;
+//     res.denominator = denominator * a.denominator;
+
+//     return res;
+// }
+// Fraction Fraction::multiply(Fraction a)
+// {
+//     Fraction res;
+//     res.numerator = numerator * a.numerator;
+//     res.denominator = denominator * a.denominator;
+
+//     return res;
+// }
+// Fraction Fraction::divide(Fraction a)
+// {
+//     Fraction res;
+//     res.numerator = numerator * a.denominator;
+//     res.denominator = denominator * a.numerator;
+
+//     return res;
+// }
+Fraction Fraction::operator+(const Fraction &other)
 {
     Fraction res;
-    res.numerator = numerator * a.denominator + denominator * a.numerator;
-    res.denominator = denominator * a.denominator;
-
+    res.numerator = this->numerator * other.denominator + this->denominator * other.numerator;
+    res.denominator = this->denominator * other.denominator;
+    res.simplify();
     return res;
 }
-Fraction Fraction::substract(Fraction a)
+Fraction Fraction::operator-(const Fraction &other)
 {
     Fraction res;
-    res.numerator = numerator * a.denominator - denominator * a.numerator;
-    res.denominator = denominator * a.denominator;
-
+    res.numerator = this->numerator * other.denominator - this->denominator * other.numerator;
+    res.denominator = this->denominator * other.denominator;
+    res.simplify();
     return res;
 }
-Fraction Fraction::multiply(Fraction a)
+Fraction Fraction::operator*(const Fraction &other)
 {
     Fraction res;
-    res.numerator = numerator * a.numerator;
-    res.denominator = denominator * a.denominator;
-
+    res.numerator = this->numerator * other.numerator;
+    res.denominator = this->denominator * other.denominator;
+    res.simplify();
     return res;
 }
-Fraction Fraction::divide(Fraction a)
+Fraction Fraction::operator/(const Fraction &other)
 {
     Fraction res;
-    res.numerator = numerator * a.denominator;
-    res.denominator = denominator * a.numerator;
-
+    res.numerator = this->numerator * other.denominator;
+    res.denominator = this->denominator * other.numerator;
+    res.simplify();
     return res;
 }

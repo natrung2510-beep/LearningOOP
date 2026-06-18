@@ -11,8 +11,12 @@ public:
     void outputFraction();
     void outputDecimal();
     void simplify();
-    Fraction plus(Fraction a);
-    Fraction substract(Fraction a);
-    Fraction multiply(Fraction a);
-    Fraction divide(Fraction a);
+    Fraction operator+(const Fraction &other);
+    Fraction operator-(const Fraction &other);
+    Fraction operator*(const Fraction &other);
+    Fraction operator/(const Fraction &other);
+    // Fraction plus(Fraction a);
+    // Fraction substract(Fraction a);
+    // Fraction multiply(Fraction a);
+    // Fraction divide(Fraction a);
 };
