@@ -151,3 +151,18 @@ ostream &operator<<(ostream &outDevice, const Fraction &f)
     outDevice << "Viết dưới dạng thập phân: " << double(f.numerator) / f.denominator << '\n';
     return outDevice;
 }
+Fraction &Fraction::operator++()
+{
+    this->numerator += this->denominator;
+    simplify();
+    return *this;
+}
+Fraction Fraction::operator++(int)
+{
+    Fraction clone = *this;
+
+    ++(*this);
+    // this->numerator += this->denominator;
+    // this->simplify();
+    return clone;
+}
