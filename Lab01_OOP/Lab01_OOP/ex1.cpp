@@ -12,42 +12,59 @@ int main()
     Fraction f1;
     Fraction f2;
 
-    cout << "Mời nhập phân số thứ nhất:\n";
-    f1.inputFraction();
-    cout << "Phân số thứ nhất là: ";
-    f1.outputFraction();
-    cout << '\n';
+    cin >> f1;
+    cout << f1;
+    cin >> f2;
+    cout << f2;
 
-    cout << "Mời nhập phân số thứ hai:\n";
-    f2.inputFraction();
-    cout << "Phân số thứ hai là: ";
-    f2.outputFraction();
-    cout << '\n';
-    cout << '\n';
+    // cout << "Mời nhập phân số thứ hai:\n";
+    // f2.inputFraction();
+    // cout << "Phân số thứ hai là: ";
+    // f2.outputFraction();
+    // cout << '\n';
+    // cout << '\n';
 
-    Fraction sum = f1.plus(f2);
-    sum.simplify();
+    // Fraction sum = f1.plus(f2);
+    Fraction sum = f1 + f2;
     cout << "Tổng của hai phân số là: ";
-    sum.outputFraction();
-    sum.outputDecimal();
+    cout << sum;
+    // sum.outputFraction();
+    // sum.outputDecimal();
 
-    Fraction substraction = f1.substract(f2);
-    substraction.simplify();
+    // Fraction substraction = f1.substract(f2);
+    Fraction substraction = f1 - f2;
     cout << "Hiệu của hai phân số là: ";
-    substraction.outputFraction();
-    substraction.outputDecimal();
+    cout << substraction;
+    // substraction.outputFraction();
+    // substraction.outputDecimal();
 
-    Fraction product = f1.multiply(f2);
-    product.simplify();
+    // Fraction product = f1.multiply(f2);
+    Fraction product = f1 * f2;
     cout << "Tích của hai phân số là: ";
-    product.outputFraction();
-    product.outputDecimal();
+    cout << product;
+    // product.outputFraction();
+    // product.outputDecimal();
 
-    Fraction quotient = f1.divide(f2);
-    quotient.simplify();
+    // Fraction quotient = f1.divide(f2);
+    Fraction quotient = f1 / f2;
     cout << "Thương của hai phân số là: ";
-    quotient.outputFraction();
-    quotient.outputDecimal();
+    cout << quotient;
+    // quotient.outputFraction();
+    // quotient.outputDecimal();
+
+    // Comparison
+    cout << "f1 > f2 ?\n";
+    cout << (f1 > f2 ? "YES\n" : "NO\n");
+    cout << "f1 < f2 ?\n";
+    cout << (f1 < f2 ? "YES\n" : "NO\n");
+    cout << "f1 >= f2 ?\n";
+    cout << (f1 >= f2 ? "YES\n" : "NO\n");
+    cout << "f1 <= f2 ?\n";
+    cout << (f1 <= f2 ? "YES\n" : "NO\n");
+    cout << "f1 == f2 ?\n";
+    cout << (f1 == f2 ? "YES\n" : "NO\n");
+    cout << "f1 != f2 ?\n";
+    cout << (f1 != f2 ? "YES\n" : "NO\n");
 
     return 0;
 }
