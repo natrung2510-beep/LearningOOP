@@ -68,7 +68,7 @@ void Fraction::simplify()
 
 //     return res;
 // }
-Fraction Fraction::operator+(const Fraction &other)
+Fraction Fraction::operator+(const Fraction &other) const
 {
     Fraction res;
     res.numerator = this->numerator * other.denominator + this->denominator * other.numerator;
@@ -76,7 +76,7 @@ Fraction Fraction::operator+(const Fraction &other)
     res.simplify();
     return res;
 }
-Fraction Fraction::operator-(const Fraction &other)
+Fraction Fraction::operator-(const Fraction &other) const
 {
     Fraction res;
     res.numerator = this->numerator * other.denominator - this->denominator * other.numerator;
@@ -84,7 +84,7 @@ Fraction Fraction::operator-(const Fraction &other)
     res.simplify();
     return res;
 }
-Fraction Fraction::operator*(const Fraction &other)
+Fraction Fraction::operator*(const Fraction &other) const
 {
     Fraction res;
     res.numerator = this->numerator * other.numerator;
@@ -92,11 +92,35 @@ Fraction Fraction::operator*(const Fraction &other)
     res.simplify();
     return res;
 }
-Fraction Fraction::operator/(const Fraction &other)
+Fraction Fraction::operator/(const Fraction &other) const
 {
     Fraction res;
     res.numerator = this->numerator * other.denominator;
     res.denominator = this->denominator * other.numerator;
     res.simplify();
     return res;
+}
+bool Fraction::operator<(const Fraction &other) const
+{
+    return this->numerator * other.denominator < this->denominator * other.numerator;
+}
+bool Fraction::operator>(const Fraction &other) const
+{
+    return this->numerator * other.denominator > this->denominator * other.numerator;
+}
+bool Fraction::operator<=(const Fraction &other) const
+{
+    return this->numerator * other.denominator <= this->denominator * other.numerator;
+}
+bool Fraction::operator>=(const Fraction &other) const
+{
+    return this->numerator * other.denominator >= this->denominator * other.numerator;
+}
+bool Fraction::operator==(const Fraction &other) const
+{
+    return this->numerator * other.denominator == this->denominator * other.numerator;
+}
+bool Fraction::operator!=(const Fraction &other) const
+{
+    return this->numerator * other.denominator != this->denominator * other.numerator;
 }
