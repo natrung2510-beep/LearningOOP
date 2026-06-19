@@ -4,23 +4,23 @@
 #include "Fraction.h"
 using namespace std;
 
-void Fraction::inputFraction()
-{
-    cout << "Mời nhập tử số:";
-    cin >> numerator;
-    cout << "Mời nhập mẫu số:";
-    cin >> denominator;
-}
-void Fraction::outputFraction()
-{
-    cout << numerator << '/' << denominator << '\n';
-}
-void Fraction::outputDecimal()
-{
-    double output;
-    output = (double)numerator / denominator;
-    cout << output << '\n';
-}
+// void Fraction::inputFraction()
+// {
+//     cout << "Mời nhập tử số:";
+//     cin >> numerator;
+//     cout << "Mời nhập mẫu số:";
+//     cin >> denominator;
+// }
+// void Fraction::outputFraction()
+// {
+//     cout << numerator << '/' << denominator << '\n';
+// }
+// void Fraction::outputDecimal()
+// {
+//     double output;
+//     output = (double)numerator / denominator;
+//     cout << output << '\n';
+// }
 void Fraction::simplify()
 {
     int a = abs(numerator);
@@ -35,6 +35,12 @@ void Fraction::simplify()
 
     numerator /= a;
     denominator /= a;
+
+    if (denominator < 0)
+    {
+        numerator *= -1;
+        denominator *= -1;
+    }
 }
 // Fraction Fraction::plus(Fraction a)
 // {
@@ -100,6 +106,15 @@ Fraction Fraction::operator/(const Fraction &other) const
     res.simplify();
     return res;
 }
+Fraction &Fraction::operator=(const Fraction &other)
+{
+    if (this != &other)
+    {
+        this->numerator = other.numerator;
+        this->denominator = other.denominator;
+    }
+    return *this;
+}
 bool Fraction::operator<(const Fraction &other) const
 {
     return this->numerator * other.denominator < this->denominator * other.numerator;
@@ -123,4 +138,16 @@ bool Fraction::operator==(const Fraction &other) const
 bool Fraction::operator!=(const Fraction &other) const
 {
     return this->numerator * other.denominator != this->denominator * other.numerator;
+}
+istream &operator>>(istream &inDevice, Fraction &f)
+{
+    inDevice >> f.numerator >> f.denominator;
+    f.simplify();
+    return inDevice;
+}
+ostream &operator<<(ostream &outDevice, const Fraction &f)
+{
+    outDevice << f.numerator << '/' << f.denominator << '\n';
+    outDevice << "Viết dưới dạng thập phân: " << double(f.numerator) / f.denominator << '\n';
+    return outDevice;
 }
