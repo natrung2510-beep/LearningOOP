@@ -166,3 +166,9 @@ Fraction Fraction::operator++(int)
     // this->simplify();
     return clone;
 }
+Fraction &Fraction::operator+=(const Fraction &other)
+{
+    this->numerator = this->numerator * other.denominator + this->denominator * other.numerator;
+    this->denominator = this->denominator * other.denominator;
+    return *this;
+}
