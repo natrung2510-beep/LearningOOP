@@ -42,3 +42,7 @@ ostream &operator<<(ostream &outDevice, const Point2D &a)
     outDevice << "(" << a.x << ", " << a.y << ")" << '\n';
     return outDevice;
 }
+bool Point2D::operator==(const Point2D &other) const
+{
+    return (abs(this->x - other.x) <= 1e-6) && (abs(this->y - other.y) <= 1e-6);
+}

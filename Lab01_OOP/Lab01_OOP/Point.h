@@ -8,6 +8,7 @@ private:
     double y;
 
 public:
+    // CONSTRUCTORS
     Point2D(double x, double y) : x(x), y(y) {}
     Point2D() : Point2D(0, 0) {}
     // void inputPoint();
@@ -17,4 +18,7 @@ public:
     double calculateDistance(const Point2D &a) const;
     double getX() const;
     double getY() const;
+
+    // OPERATORS
+    bool operator==(const Point2D &other) const;
 };
