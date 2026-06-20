@@ -18,8 +18,8 @@ void Point2D::outputPoint()
 }
 double Point2D::calculateDistance(Point2D a)
 {
-    double newX = abs(x - a.x);
-    double newY = abs(y - a.y);
+    double newX = x - a.x;
+    double newY = y - a.y;
 
     return sqrt(newX * newX + newY * newY);
 }
@@ -30,4 +30,15 @@ double Point2D::getX()
 double Point2D::getY()
 {
     return y;
+}
+istream &operator>>(istream &inDevice, Point2D &a)
+{
+    inDevice >> a.x >> a.y;
+    inDevice.ignore();
+    return inDevice;
+}
+ostream &operator<<(ostream &outDevice, const Point2D &a)
+{
+    outDevice << "(" << a.x << ", " << a.y << ")" << '\n';
+    return outDevice;
 }
