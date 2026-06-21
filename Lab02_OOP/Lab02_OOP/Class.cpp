@@ -4,21 +4,21 @@
 #include <string>
 #include "Class.h"
 using namespace std;
-void mergeSort_Helper(vector<Student> &members, int n, vector<Student> &temp, int low, int high)
+static void mergeSort_Helper(vector<Student> &members, vector<Student> &temp, int low, int high)
 {
     if (low >= high)
         return;
 
     int mid = (low + high) / 2;
-    mergeSort_Helper(members, n, temp, low, mid);
-    mergeSort_Helper(members, n, temp, mid + 1, high);
+    mergeSort_Helper(members, temp, low, mid);
+    mergeSort_Helper(members, temp, mid + 1, high);
 
     int i = low;
     int j = mid + 1;
     int k = low;
 
     while (i <= mid && j <= high)
-        temp[k++] = (members[i].getAveragePoint() >= members[j].getAveragePoint()) ? members[i++] : members[j++];
+        temp[k++] = (members[j] < members[i]) ? members[i++] : members[j++];
     while (i <= mid)
         temp[k++] = members[i++];
     while (j <= high)
@@ -27,14 +27,14 @@ void mergeSort_Helper(vector<Student> &members, int n, vector<Student> &temp, in
     for (int p = low; p <= high; p++)
         members[p] = temp[p];
 }
-void mergeSort(vector<Student> &members)
+static void mergeSort(vector<Student> &members)
 {
     int n = members.size();
     vector<Student> temp(n);
 
-    mergeSort_Helper(members, n, temp, 0, n - 1);
+    mergeSort_Helper(members, temp, 0, n - 1);
 }
-void Class::addStudent(string newName, string newNumber, float newPoint)
+void Class::addStudent(const string &newName, const string &newNumber, float newPoint)
 {
     bool isFound = false;
 
@@ -51,17 +51,13 @@ void Class::addStudent(string newName, string newNumber, float newPoint)
         cout << "The student is already in the class!\n";
     else
     {
-        Student newStudent;
-        newStudent.setName(newName);
-        newStudent.setNumber(newNumber);
-        newStudent.setAveragePoint(newPoint);
-        newStudent.checkValidInformation();
+        Student newStudent(newName, newNumber, newPoint);
         members.push_back(newStudent);
         cout << "Successfully added!\n";
     }
 }
 
-void Class::removeStudent(string name)
+void Class::removeStudent(const string &name)
 {
     bool isFound = false;
     int target = 0;
@@ -81,7 +77,7 @@ void Class::removeStudent(string name)
         cout << "Successfully removed!\n";
     }
     else
-        cout << "The student is not in  the class!\n";
+        cout << "The student is not in the class!\n";
 }
 
 void Class::sortStudent_DescendingAveragePoint()
@@ -89,10 +85,10 @@ void Class::sortStudent_DescendingAveragePoint()
     mergeSort(members);
 }
 
-void Class::outputClass()
+void Class::outputClass() const
 {
     for (const auto &i : members)
-        i.outputInformation();
+        cout << i;
 }
 
 void Class::inputClass_File()
@@ -103,24 +99,10 @@ void Class::inputClass_File()
         return;
     int classSize;
     myFile >> classSize;
-    myFile.ignore();
     while (classSize--)
     {
         Student student;
-        string fullName;
-        string phoneNumber;
-        float averagePoint;
-
-        getline(myFile, fullName);
-        myFile >> phoneNumber;
-        myFile.ignore();
-        myFile >> averagePoint;
-        myFile.ignore();
-
-        student.setAveragePoint(averagePoint);
-        student.setName(fullName);
-        student.setNumber(phoneNumber);
-
+        myFile >> student;
         members.push_back(student);
     }
 }

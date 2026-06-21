@@ -10,9 +10,9 @@ private:
     vector<Student> members;
 
 public:
-    void addStudent(string newName, string newNumber, float newPoint);
-    void removeStudent(string name);
+    void addStudent(const string &newName, const string &newNumber, float newPoint);
+    void removeStudent(const string &name);
     void sortStudent_DescendingAveragePoint();
-    void outputClass();
+    void outputClass() const;
     void inputClass_File(); // "LopHoc.txt"
 };
