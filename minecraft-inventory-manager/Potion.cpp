@@ -17,5 +17,5 @@ void Potion::printInfor(ostream &outDevice) const
 }
 
 // CONSTRUCTORS
-Potion::Potion(int rarity, int quantity, const char *name) : Item(name, rarity, quantity) {}
+Potion::Potion(int rarity, int quantity, const char *name) : Item(name, rarity, quantity, 1) {}
 Potion::Potion(const Potion &other) : Item(other) {}
