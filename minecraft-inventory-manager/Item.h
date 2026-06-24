@@ -8,10 +8,11 @@ protected:
     char *name;
     int rarity;
     int quantity;
+    int maxStack;
 
 public:
     // CONSTRUCTORS
-    Item(const char *name, int rarity, int quantity);
+    Item(const char *name, int rarity, int quantity, int maxStack);
     Item(const Item &other);
 
     // PVFs
@@ -29,7 +30,7 @@ public:
     // OPERATORS
     bool operator==(const Item &other) const;
 
-    Item *operator+(const Item &other) const;
+    Item *operator+(Item &other) const;
 
     friend std::ostream &operator<<(std::ostream &outDevice, const Item &other);
 };
