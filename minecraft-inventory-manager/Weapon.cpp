@@ -16,7 +16,7 @@ void Weapon::printInfor(ostream &outDevice) const
     outDevice << " | ST: " << this->damage << "]";
 }
 // CONSTRUCTORS
-Weapon::Weapon(int rarity, int quantity, const char *name, float damage) : Item(name, rarity, quantity)
+Weapon::Weapon(int rarity, int quantity, const char *name, float damage) : Item(name, rarity, quantity, 1)
 {
     this->damage = damage;
 }
