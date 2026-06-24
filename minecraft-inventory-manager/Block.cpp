@@ -18,5 +18,5 @@ void Block::printInfor(ostream &outDevice) const
 }
 
 // CONSTRUCTORS
-Block::Block(int rarity, int quantity, const char *name) : Item(name, rarity, quantity) {}
+Block::Block(int rarity, int quantity, const char *name) : Item(name, rarity, quantity, 64) {}
 Block::Block(const Block &other) : Item(other) {}
