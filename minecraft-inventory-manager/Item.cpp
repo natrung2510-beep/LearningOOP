@@ -51,3 +51,17 @@ Item::Item(const Item &other)
     this->name = new char[strlen(other.name) + 1];
     strcpy(other.name, this->name);
 }
+// OPERATIONS
+
+int Item::getQuantity() const
+{
+    return quantity;
+}
+int Item::getMaxStack() const
+{
+    return maxStack;
+}
+void Item::setQuantity(int newVal)
+{
+    quantity = newVal;
+}

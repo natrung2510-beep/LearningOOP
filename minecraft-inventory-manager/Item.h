@@ -33,4 +33,10 @@ public:
     Item *operator+(Item &other) const;
 
     friend std::ostream &operator<<(std::ostream &outDevice, const Item &other);
+
+    // OPERATIONS
+
+    int getQuantity() const;
+    int getMaxStack() const;
+    void setQuantity(int newVal);
 };
