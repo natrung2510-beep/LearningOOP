@@ -5,7 +5,7 @@
 #include <stdexcept>
 #include <format>
 using namespace std;
-
+// OPERATOR OVERLOADINGS
 bool Item::operator==(const Item &other) const
 {
     return (typeid(*this) == typeid(other)) && (strcmp(this->name, other.name) == 0) && (this->rarity == other.rarity);
@@ -30,4 +30,21 @@ ostream &operator<<(ostream &outDevice, const Item &other)
 {
     other.printInfor(outDevice);
     return outDevice;
+}
+
+// CONSTRUCTORS
+Item::Item(const char *name, int rarity, int quantity)
+{
+    this->rarity = rarity;
+    this->quantity = quantity;
+
+    this->name = new char[strlen(name) + 1];
+    strcpy(this->name, name);
+}
+Item::Item(const Item &other)
+{
+    this->rarity = other.rarity;
+    this->quantity = other.quantity;
+    this->name = new char[strlen(other.name) + 1];
+    strcpy(other.name, this->name);
 }
