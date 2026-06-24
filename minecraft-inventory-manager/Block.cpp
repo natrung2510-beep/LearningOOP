@@ -1,8 +1,8 @@
 #include <iostream>
 #include "Block.h"
-
 using namespace std;
 
+// OVERRIDE
 void Block::useItem()
 {
     cout << "Đặt 1 block " << name << " xuống!\n";
@@ -16,3 +16,7 @@ void Block::printInfor(ostream &outDevice) const
     Item::printInfor(outDevice);
     outDevice << "]";
 }
+
+// CONSTRUCTORS
+Block::Block(int rarity, int quantity, const char *name) : Item(name, rarity, quantity) {}
+Block::Block(const Block &other) : Item(other) {}

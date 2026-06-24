@@ -5,9 +5,11 @@
 class Block : public Item
 {
 public:
-    Block(int rarity, int quantity, const char *name) : Item(name, rarity, quantity) {}
-    Block(const Block &other) : Item(other) {}
+    // CONSTRUCTORS
+    Block(int rarity, int quantity, const char *name);
+    Block(const Block &other);
 
+    // OVERRIDE
     void useItem() override;
     Item *clone() const override;
     void printInfor(std::ostream &outDevice) const override;
