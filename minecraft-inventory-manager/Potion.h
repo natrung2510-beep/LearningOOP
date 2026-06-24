@@ -6,8 +6,8 @@ class Potion : public Item
 {
 public:
     // CONSTRUCTORS
-    Potion(int rarity, int quantity, const char *name) : Item(name, rarity, quantity) {}
-    Potion(const Potion &other) : Item(other) {}
+    Potion(int rarity, int quantity, const char *name);
+    Potion(const Potion &other);
     // OVERRIDE
     void printInfor(std::ostream &outDevice) const override;
     void useItem() override;
