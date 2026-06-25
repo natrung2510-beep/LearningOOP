@@ -44,3 +44,41 @@ Inventory &Inventory::operator=(const Inventory &other)
 
     return *this;
 }
+// OPERATIONS
+Item *Inventory::addItem(Item *newItem)
+{
+    int tombstone = -1;
+    for (int i = 0; i < this->capacity; i++)
+    {
+
+        if (tombstone == -1 && !this->slot[i])
+            tombstone = i;
+
+        if (this->slot[i] && *this->slot[i] == *newItem)
+        {
+            int canAdd = this->slot[i]->getMaxStack() - this->slot[i]->getQuantity();
+            if (canAdd > 0)
+            {
+                int feasible = min(canAdd, newItem->getQuantity());
+                this->slot[i]->setQuantity(this->slot[i]->getQuantity() + feasible);
+                newItem->setQuantity(newItem->getQuantity() - feasible);
+
+                if (newItem->getQuantity() == 0)
+                {
+                    delete newItem;
+                    newItem = nullptr;
+                    return nullptr;
+                }
+            }
+        }
+    }
+    if (tombstone != -1)
+    {
+        this->slot[tombstone] = newItem;
+        this->count++;
+        return nullptr;
+    }
+
+    cout << "[Hệ thống]: Túi đồ đầy, vật phẩm bị rớt ra ngoài!\n";
+    return newItem;
+}
