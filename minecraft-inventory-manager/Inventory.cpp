@@ -82,3 +82,49 @@ Item *Inventory::addItem(Item *newItem)
     cout << "[Hệ thống]: Túi đồ đầy, vật phẩm bị rớt ra ngoài!\n";
     return newItem;
 }
+
+void Inventory::quickSort(int low, int high)
+{
+    if (low >= high)
+        return;
+    int mid = low + (high - low) / 2;
+    int len = high - low + 1;
+
+    if (*slot[high] < *slot[low])
+        swap(slot[high], slot[low]);
+    if (*slot[high] < *slot[mid])
+        swap(slot[high], slot[mid]);
+    if (*slot[mid] < *slot[low])
+        swap(slot[mid], slot[low]);
+
+    if (len == 3)
+        return;
+
+    auto pivot = slot[mid];
+    swap(slot[mid], slot[high - 1]);
+
+    int i = low;
+    int j = high - 1;
+    while (true)
+    {
+        while (*slot[++i] < *pivot)
+            ;
+        while (!(*slot[--j] < *pivot))
+            ;
+
+        if (i >= j)
+            break;
+
+        swap(slot[i], slot[j]);
+    }
+    swap(slot[high - 1], slot[i]);
+
+    quickSort(low, i - 1);
+    quickSort(i + 1, high);
+}
+void Inventory::sortInventory()
+{
+    if (this->count <= 1)
+        return;
+    quickSort(0, this->capacity - 1);
+}
