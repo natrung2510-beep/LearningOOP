@@ -126,5 +126,22 @@ void Inventory::sortInventory()
 {
     if (this->count <= 1)
         return;
-    quickSort(0, this->capacity - 1);
+
+    Item **temp = new Item *[this->count];
+    int j = 0;
+    for (int i = 0; i < this->capacity; i++)
+    {
+        if (this->slot[i])
+            temp[j++] = this->slot[i];
+    }
+
+    for (int i = 0; i < this->count; i++)
+        this->slot[i] = temp[i];
+    for (int i = this->count; i < this->capacity; i++)
+        this->slot[i] = nullptr;
+
+    quickSort(0, this->count - 1);
+
+    delete[] temp;
+    temp = nullptr;
 }
