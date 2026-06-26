@@ -22,6 +22,7 @@ public:
     Item **getSlot() const;
     // OPERATORS
     Inventory &operator=(const Inventory &other);
+    friend std::ostream &operator<<(ostream &outDevice, const Inventory &inv);
     // DESTRUCTORS
     ~Inventory();
 };

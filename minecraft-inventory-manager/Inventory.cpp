@@ -52,6 +52,22 @@ Inventory &Inventory::operator=(const Inventory &other)
 
     return *this;
 }
+ostream &operator<<(ostream &outDevice, const Inventory &inv)
+{
+    outDevice << "==== TÌNH TRẠNG TÚI ĐỒ (" << inv.count << "/" << inv.capacity << ") =====\n\n";
+    for (int i = 0; i < inv.capacity; i++)
+    {
+        outDevice << "Slot " << i << " : ";
+        if (inv.slot[i])
+        {
+            inv.slot[i]->printInfor(outDevice);
+            outDevice << "\n";
+        }
+        else
+            outDevice << "[---- TRỐNG ----]\n";
+    }
+    return outDevice;
+}
 // OPERATIONS
 void Inventory::removeItem(int idx)
 {
