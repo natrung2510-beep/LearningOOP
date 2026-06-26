@@ -16,6 +16,7 @@ Inventory::Inventory(const Inventory &other)
     for (int i = 0; i < this->capacity; i++)
         this->slot[i] = (other.slot[i]) ? other.slot[i]->clone() : nullptr;
 }
+
 // DESTRUCTOR
 Inventory::~Inventory()
 {
