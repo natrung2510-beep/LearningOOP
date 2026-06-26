@@ -153,3 +153,7 @@ void Inventory::sortInventory()
     delete[] temp;
     temp = nullptr;
 }
+Item **Inventory::getSlot() const
+{
+    return this->slot;
+}
