@@ -34,8 +34,9 @@ public:
 
     friend std::ostream &operator<<(std::ostream &outDevice, const Item &other);
 
+    bool operator<(const Item &other) const;
     // OPERATIONS
-
+    char *getName() const;
     int getQuantity() const;
     int getMaxStack() const;
     void setQuantity(int newVal);

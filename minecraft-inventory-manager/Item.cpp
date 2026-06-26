@@ -33,7 +33,12 @@ ostream &operator<<(ostream &outDevice, const Item &other)
     other.printInfor(outDevice);
     return outDevice;
 }
-
+bool Item::operator<(const Item &other) const
+{
+    if (this->rarity != other.rarity)
+        return this->rarity > other.rarity;
+    return this->quantity > other.quantity;
+}
 // CONSTRUCTORS
 Item::Item(const char *name, int rarity, int quantity, int maxStack)
 {
@@ -63,5 +68,13 @@ int Item::getMaxStack() const
 }
 void Item::setQuantity(int newVal)
 {
-    quantity = newVal;
+    if (newVal < 0)
+        newVal = 0;
+    else if (newVal > this->maxStack)
+        newVal = this->maxStack;
+    this->quantity = newVal;
+}
+char *Item::getName() const
+{
+    return this->name;
 }
