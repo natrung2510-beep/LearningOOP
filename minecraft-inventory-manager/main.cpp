@@ -91,23 +91,32 @@ int main()
     leftOver = nullptr;
 
     // ---------------------------------------------------------
-    printStep("3. Ép giới hạn (Túi đầy & Rớt đồ)");
-    printAction("Nhét thêm đồ VIP khi túi đã chứa tối đa số slot.");
-
-    // TODO: Viết code test túi đầy ở đây...
-
-    printResult("Hệ thống báo đầy túi, vật phẩm bị rớt ra ngoài mà không sập game.");
-
-    // ---------------------------------------------------------
-    printStep("4. Xóa đồ & Quản lý phân mảnh (Fragmentation)");
+    printStep("3. Xóa đồ & Quản lý phân mảnh (Fragmentation)");
     printAction("Xóa ngẫu nhiên 1 món đồ ở giữa túi, rồi nhặt 1 món mới hoàn toàn.");
-
     // TODO: Viết code test xóa đồ và nhét vào ô trống (tombstone) ở đây...
-
-    printResult("Món đồ mới đã khôn ngoan lấp đúng vào khoảng trống ở giữa túi đồ.");
+    if (myInventory.getSlot()[2])
+        cout << "Slot " << 2 << " đang chứa " << myInventory.getSlot()[2]->getName() << '\n';
+    myInventory.removeItem(2);
+    if (!myInventory.getSlot()[2])
+    {
+        cout << "Slot " << 2 << " đang trống\n";
+        leftOver = myInventory.addItem(new Block(2, 30, "Khối sắt"));
+        if (leftOver)
+        {
+            delete leftOver;
+            leftOver = nullptr;
+        }
+    }
+    if (myInventory.getSlot()[2])
+    {
+        cout << "Slot " << 2 << " đang chứa " << myInventory.getSlot()[2]->getName() << '\n';
+        printResult("Món đồ mới đã khôn ngoan lấp đúng vào khoảng trống ở giữa túi đồ.");
+    }
+    else
+        printResult("Slot hiện tại vẫn trống! Tìm hiểu thêm....");
 
     // ---------------------------------------------------------
-    printStep("5. Nén mảng & Sắp xếp (Compaction & Quick Sort)");
+    printStep("4. Nén mảng & Sắp xếp (Compaction & Quick Sort)");
     printAction("Xóa 1 vài ô để tạo khoảng trống, sau đó gọi sortInventory().");
 
     // TODO: Viết code gọi hàm sort ở đây...
@@ -115,7 +124,7 @@ int main()
     printResult("Túi đồ đã dồn khít, ô trống bị đẩy về cuối, đồ VIP Rarity cao nằm trên cùng!");
 
     // ---------------------------------------------------------
-    printStep("6. Luật 3 Hàm (Deep Copy & Memory)");
+    printStep("5. Luật 3 Hàm (Deep Copy & Memory)");
     printAction("Tạo túi đồ copy (bag2 = bag1) và thay đổi tên 1 món đồ trong bag2.");
 
     // TODO: Viết code test Copy Constructor / Assignment Operator ở đây...
