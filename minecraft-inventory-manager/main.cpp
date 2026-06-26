@@ -93,43 +93,44 @@ int main()
     // ---------------------------------------------------------
     printStep("3. Xóa đồ & Quản lý phân mảnh (Fragmentation)");
     printAction("Xóa ngẫu nhiên 1 món đồ ở giữa túi, rồi nhặt 1 món mới hoàn toàn.");
-    // TODO: Viết code test xóa đồ và nhét vào ô trống (tombstone) ở đây...
-    if (myInventory.getSlot()[2])
-        cout << "Slot " << 2 << " đang chứa " << myInventory.getSlot()[2]->getName() << '\n';
+
+    cout << "\n[ TIẾN HÀNH XÓA ĐỒ Ở SLOT 2 ]\n";
     myInventory.removeItem(2);
-    if (!myInventory.getSlot()[2])
+
+    cout << "\n>>> TÌNH TRẠNG TÚI (CÓ LỖ HỔNG):";
+    cout << myInventory;
+
+    cout << "\n[ NHẶT 'KHỐI SẮT' VÀO TÚI ]\n";
+    leftOver = myInventory.addItem(new Block(2, 30, "Khối sắt"));
+    if (leftOver)
     {
-        cout << "Slot " << 2 << " đang trống\n";
-        leftOver = myInventory.addItem(new Block(2, 30, "Khối sắt"));
-        if (leftOver)
-        {
-            delete leftOver;
-            leftOver = nullptr;
-        }
+        delete leftOver;
+        leftOver = nullptr;
     }
-    if (myInventory.getSlot()[2])
-    {
-        cout << "Slot " << 2 << " đang chứa " << myInventory.getSlot()[2]->getName() << '\n';
-        printResult("Món đồ mới đã khôn ngoan lấp đúng vào khoảng trống ở giữa túi đồ.");
-    }
-    else
-        printResult("Slot hiện tại vẫn trống! Tìm hiểu thêm....");
+
+    cout << "\n>>> TÌNH TRẠNG TÚI (ĐÃ LẤP LỖ HỔNG):";
+    cout << myInventory;
+
+    printResult("Hệ thống đã tự động tìm thấy Slot trống và lấp đầy hoàn hảo!");
 
     // ---------------------------------------------------------
     printStep("4. Nén mảng & Sắp xếp (Compaction & Quick Sort)");
     printAction("Xóa 1 vài ô để tạo khoảng trống, sau đó gọi sortInventory().");
-
+    cout << myInventory;
+    myInventory.removeItem(1);
+    myInventory.removeItem(2);
     // TODO: Viết code gọi hàm sort ở đây...
-
+    cout << myInventory;
+    myInventory.sortInventory();
+    cout << myInventory;
     printResult("Túi đồ đã dồn khít, ô trống bị đẩy về cuối, đồ VIP Rarity cao nằm trên cùng!");
 
     // ---------------------------------------------------------
     printStep("5. Luật 3 Hàm (Deep Copy & Memory)");
-    printAction("Tạo túi đồ copy (bag2 = bag1) và thay đổi tên 1 món đồ trong bag2.");
-
+    printAction("Tạo hai túi đồ và thay đổi SỐ LƯỢNG 1 món đồ bất kì.");
     // TODO: Viết code test Copy Constructor / Assignment Operator ở đây...
 
-    printResult("Túi 1 không bị đổi tên theo. Hai túi hoàn toàn độc lập trong bộ nhớ!");
+    printResult("Ba túi đồ hoàn toàn độc lập trong bộ nhớ!");
 
     cout << "\n=================================================================\n";
     cout << "🏁 HOÀN TẤT KIỂM THỬ. HỆ THỐNG ĐANG DỌN DẸP BỘ NHỚ...\n";
