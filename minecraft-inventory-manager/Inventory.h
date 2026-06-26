@@ -16,7 +16,7 @@ public:
     Inventory();
     // OPERATIONS
     Item *addItem(Item *item);
-
+    void removeItem(int idx);
     void sortInventory();
 
     Item **getSlot() const;

@@ -53,6 +53,26 @@ Inventory &Inventory::operator=(const Inventory &other)
     return *this;
 }
 // OPERATIONS
+void Inventory::removeItem(int idx)
+{
+    if (idx < 0 || idx > this->capacity)
+    {
+        cout << "Index không hợp lệ!\n";
+        return;
+    }
+
+    if (!this->slot[idx])
+    {
+        cout << "Slot " << idx << " trống, không có gì để xoá\n";
+        return;
+    }
+
+    delete this->slot[idx];
+    this->slot[idx] = nullptr;
+    this->count--;
+
+    cout << "Đã xoá vật phẩm thành công tại ô " << idx << '\n';
+}
 Item *Inventory::addItem(Item *newItem)
 {
     int tombstone = -1;
