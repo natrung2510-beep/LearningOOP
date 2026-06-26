@@ -129,6 +129,24 @@ int main()
     printStep("5. Luật 3 Hàm (Deep Copy & Memory)");
     printAction("Tạo hai túi đồ và thay đổi SỐ LƯỢNG 1 món đồ bất kì.");
     // TODO: Viết code test Copy Constructor / Assignment Operator ở đây...
+    cout << "Tạo túi đồ thứ nhất (myBag1) bằng toán tử gán (= operator):\n";
+    Inventory myBag1(5);
+    myBag1 = myInventory;
+    cout << "THÔNG TIN TÚI ĐỒ THỨ NHẤT:\n";
+    cout << myBag1;
+    cout << "Thay đổi số lượng của vật phẩm trong slot số " << 3 << "trong túi đồ thứ nhất\n";
+    myBag1.getSlot()[3]->setQuantity(1);
+    cout << "Số lượng vât phẩm ô thứ 3 trong myBag1 là : " << myBag1.getSlot()[3]->getQuantity() << '\n';
+    cout << "Số lượng vât phẩm ô thứ 3 trong myInventory là : " << myInventory.getSlot()[3]->getQuantity() << '\n';
+
+    cout << "Tạo túi đồ thứ 2 (myBag2) bằng copy constructor từ myBag1:\n";
+    Inventory myBag2(myBag1);
+    cout << "THÔNG TIN TÚI ĐỒ THỨ HAI:\n";
+    cout << myBag2;
+    cout << "Thay đổi số lượng của vật phẩm trong slot số " << 3 << "trong túi đồ thứ hai\n";
+    myBag2.getSlot()[3]->setQuantity(12);
+    cout << "Số lượng vât phẩm ô thứ 3 trong myBag2 là : " << myBag2.getSlot()[3]->getQuantity() << '\n';
+    cout << "Số lượng vât phẩm ô thứ 3 trong myBag1 là : " << myBag1.getSlot()[3]->getQuantity() << '\n';
 
     printResult("Ba túi đồ hoàn toàn độc lập trong bộ nhớ!");
 
