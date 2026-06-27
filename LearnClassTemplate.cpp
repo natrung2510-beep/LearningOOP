@@ -14,7 +14,7 @@ public:
 };
 
 template <typename T>
-Box<T>::Box(const T &item) : item(item);
+Box<T>::Box(const T &item) : item(item) {}
 
 template <typename T>
 T Box<T>::getItem() const
@@ -22,6 +22,30 @@ T Box<T>::getItem() const
     return item;
 }
 
+template <typename T>
+class MagicBox : public Box<T>
+{
+public:
+    void showItem();
+    {
+        cout << "The treasure includes: " << this->item << '\n';
+    }
+
+    friend ostream &operator<<(ostream &outDevice, const MagicBox<T> &item);
+};
+
+template <typename T>
+void MagicBox<T>::showItem()
+{
+    cout << "The treasure includes: " << this->item << '\n';
+}
+
+template <typename T>
+ostream &operator<<(ostream &outDevice, const MagicBox<T> &mb)
+{
+    outDevice << "The treasure includes: " << mb.item << '\n';
+    return outDevice;
+}
 int main()
 {
 
