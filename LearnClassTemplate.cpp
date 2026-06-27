@@ -36,6 +36,7 @@ template <typename T>
 class MagicBox : public Box<T>
 {
 public:
+    MagicBox(const T &item) : Box(T) {}
     void showItem();
     {
         cout << "The treasure includes: " << this->item << '\n';
@@ -59,6 +60,6 @@ ostream &operator<<(ostream &outDevice, const MagicBox<T> &mb)
 int main()
 {
     Box<int> pocket(5e6);
-    // MagicBox<string> treasure("Gomu Gomu no Mi");
+    MagicBox<string> treasure("Gomu Gomu no Mi");
     cin.get();
 }
