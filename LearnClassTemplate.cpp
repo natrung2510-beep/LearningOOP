@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 template <typename T>
@@ -11,7 +12,16 @@ public:
     Box(const T &item);
 
     T getItem() const;
+
+    friend ostream &operator<<(ostream &outDevice, const Box<T> &item);
 };
+
+template <typename T>
+ostream &operator<<(ostream &outDevice, const Box<T> &b)
+{
+    outDevice << "The treasure includes: " << b.item << '\n';
+    return outDevice;
+}
 
 template <typename T>
 Box<T>::Box(const T &item) : item(item) {}
@@ -48,6 +58,7 @@ ostream &operator<<(ostream &outDevice, const MagicBox<T> &mb)
 }
 int main()
 {
-
+    Box<int> pocket(5e6);
+    // MagicBox<string> treasure("Gomu Gomu no Mi");
     cin.get();
 }
