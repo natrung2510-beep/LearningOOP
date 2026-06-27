@@ -8,13 +8,20 @@ protected:
     T item;
 
 public:
-    Box(const T &item) : item(item);
+    Box(const T &item);
 
-    T getItem() const
-    {
-        return item;
-    }
+    T getItem() const;
 };
+
+template <typename T>
+Box<T>::Box(const T &item) : item(item);
+
+template <typename T>
+T Box<T>::getItem() const
+{
+    return item;
+}
+
 int main()
 {
 
