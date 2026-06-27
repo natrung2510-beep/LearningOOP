@@ -61,5 +61,7 @@ int main()
 {
     Box<int> pocket(5e6);
     MagicBox<string> treasure("Gomu Gomu no Mi");
+    cout << pocket;
+    cout << treasure;
     cin.get();
 }
