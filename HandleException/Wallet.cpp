@@ -23,6 +23,7 @@ Wallet::Wallet(const char *name, double balance)
 // Operations
 double Wallet::getBalance() const noexcept
 {
+    return this->balance;
 }
 void Wallet::deposit(double amount) {}
 void Wallet::withdraw(double amount) {}
