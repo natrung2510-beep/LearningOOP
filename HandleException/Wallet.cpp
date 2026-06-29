@@ -15,7 +15,7 @@ InsufficientFundsException::InsufficientFundsException(const char *msg) : Transa
 Wallet::Wallet(const char *name, double balance)
 {
     if (balance < 0)
-        throw invalid_argument("Số dư không thể là số âm!");
+        throw invalid_argument("SỐ DƯ KHÔNG THỂ LÀ SỐ ÂM!");
     this->balance = balance;
     this->ownerName = new char[strlen(name) + 1];
     strcpy(ownerName, name);
@@ -25,7 +25,17 @@ double Wallet::getBalance() const noexcept
 {
     return this->balance;
 }
-void Wallet::deposit(double amount) {}
+void Wallet::deposit(double amount)
+{
+    if (amount <= 0)
+        throw InvalidAmountException("SỐ TIỀN CẦN NẠP KHÔNG THỂ ÂM!");
+
+    if (amount > this->balance)
+        throw InsufficientFundsException("SỐ DƯ CỦA QUÝ KHÁCH KHÔNG ĐỦ ĐỂ THỰC HIỆN GIAO DỊCH!");
+
+    this->balance += amount;
+    cout << "NẠP TIỀN THÀNH CÔNG! SỐ DƯ HIỆN TẠI: " << this->balance << '\n';
+}
 void Wallet::withdraw(double amount) {}
 
 // Destructors
