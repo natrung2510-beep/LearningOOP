@@ -7,12 +7,12 @@ class TransactionException : public std::runtime_error
 public:
     TransactionException(const char *msg);
 };
-class InvalidAmountException : public std::invalid_argument
+class InvalidAmountException : public TransactionException
 {
 public:
     InvalidAmountException(const char *msg);
 };
-class InsufficientFundsException : public std::runtime_error
+class InsufficientFundsException : public TransactionException
 {
 public:
     InsufficientFundsException(const char *msg);
