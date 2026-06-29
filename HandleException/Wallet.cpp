@@ -6,8 +6,8 @@ using namespace std;
 
 // EXCEPTION IMPLEMENTATIONS
 TransactionException::TransactionException(const char *msg) : runtime_error(msg) {}
-TransactionException::TransactionException(const char *msg) : runtime_error(msg) {}
-TransactionException::TransactionException(const char *msg) : runtime_error(msg) {}
+InvalidAmountException::InvalidAmountException(const char *msg) : TransactionException(msg) {}
+InsufficientFundsException::InsufficientFundsException(const char *msg) : TransactionException(msg) {}
 
 // WALLET CLASS IMPLEMENTATIONS
 
