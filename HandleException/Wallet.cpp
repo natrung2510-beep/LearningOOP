@@ -25,6 +25,10 @@ double Wallet::getBalance() const noexcept
 {
     return this->balance;
 }
+char *Wallet::getName() const noexcept
+{
+    return this->ownerName;
+}
 void Wallet::deposit(double amount)
 {
     if (amount <= 0)

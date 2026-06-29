@@ -28,6 +28,7 @@ private:
 public:
     Wallet(const char *name, double balance);
     double getBalance() const noexcept;
+    char *getName() const noexcept;
     void deposit(double amount);
     void withdraw(double amount);
     ~Wallet();
