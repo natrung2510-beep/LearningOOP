@@ -23,6 +23,7 @@ class Wallet
 private:
     char *ownerName;
     double balance;
+    static constexpr double MAX_BALANCE = static_cast<double>(2e7);
 
 public:
     Wallet(const char *name, double balance);

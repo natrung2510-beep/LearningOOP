@@ -41,6 +41,9 @@ void Wallet::withdraw(double amount)
     if (amount > this->balance)
         throw InsufficientFundsException("SỐ DƯ CỦA QUÝ KHÁCH KHÔNG ĐỦ ĐỂ THỰC HIỆN GIAO DỊCH!");
 
+    if (amount > MAX_BALANCE)
+        throw TransactionException("LỖI GIAO DỊCH! VƯỢT QUÁ HẠN MỨC CHO PHÉP!");
+
     this->balance -= amount;
     cout << "RÚT TIỀN THÀNH CÔNG! SỐ DƯ HIỆN TẠI: " << this->balance << '\n';
 }
