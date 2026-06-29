@@ -30,9 +30,6 @@ void Wallet::deposit(double amount)
     if (amount <= 0)
         throw InvalidAmountException("SỐ TIỀN CẦN NẠP KHÔNG THỂ ÂM!");
 
-    if (amount > this->balance)
-        throw InsufficientFundsException("SỐ DƯ CỦA QUÝ KHÁCH KHÔNG ĐỦ ĐỂ THỰC HIỆN GIAO DỊCH!");
-
     this->balance += amount;
     cout << "NẠP TIỀN THÀNH CÔNG! SỐ DƯ HIỆN TẠI: " << this->balance << '\n';
 }
