@@ -60,6 +60,8 @@ void Employee::validateInformation()
     }
     if (!checkValidSalaryCoefficient())
         salaryCoefficient = salaryMultipliers[target];
+
+    this->workName = jobTitle + " " + fullName;
 }
 // CONSTRUCTORS
 Employee::Employee() : fullName("Nguyen Van A"), workDays(0), jobTitle(positions[0]), workName(positions[0] + " " + fullName), salaryCoefficient(salaryMultipliers[0]) {}
