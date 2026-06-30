@@ -9,6 +9,10 @@ private:
     std::string workName;
     float salaryCoefficient;
 
+    static const inline std::string positions[4] = {"Nhan vien", "Quan ly", "Truong phong", "Truong ban quan ly"};
+    static constexpr float salaryMultipliers[4] = {1.0f, 1.5f, 2.25f, 4.0f};
+    static constexpr int terms[3] = {365, 730, 1460};
+
     bool checkValidJobTitle() const;
     bool checkValidSalaryCoefficient() const;
     void validateInformation();
