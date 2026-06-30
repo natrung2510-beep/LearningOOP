@@ -62,12 +62,20 @@ void Employee::validateInformation()
         salaryCoefficient = salaryMultipliers[target];
 }
 // CONSTRUCTORS
-Employee::Employee(const std::string &fullName, int workDays, const std::string &jobTitle, const std::string &workName, float salaryCoefficient) {}
-Employee::Employee(const std::string &fullName, int workDays) : Employee(fullName, workDays) {}
-Employee::Employee(const Employee &other) {} // chức danh , hs lương, số ngày làm việc
+Employee::Employee() : fullName("Nguyen Van A"), workDays(0), jobTitle(positions[0]), workName(positions[0] + " " + fullName), salaryCoefficient(salaryMultipliers[0]) {}
+Employee::Employee(const std::string &fullName, int workDays, const std::string &jobTitle, const std::string &workName, float salaryCoefficient) : fullName(fullName), workDays(workDays), jobTitle(jobTitle), workName(workName), salaryCoefficient(salaryCoefficient)
+{
+    validateInformation();
+    cout << "Tao thanh cong doi tuong moi!\n";
+}
+Employee::Employee(const std::string &fullName, int workDays) : Employee(fullName, workDays, positions[0], positions[0] + " " + fullName, salaryMultipliers[0]) {}
+Employee::Employee(const Employee &other) : Employee("Nguyen Van A", other.workDays, other.jobTitle, other.jobTitle + " " + "Nguyen Van A", other.salaryCoefficient) {}
 
 // DESTRUCTOR
-Employee::~Employee() {}
+Employee::~Employee()
+{
+    cout << "Huy doi tuong thanh cong!\n";
+}
 // OPERATIONS
 // getter
 std::string Employee::getfullName() const noexcept {}
