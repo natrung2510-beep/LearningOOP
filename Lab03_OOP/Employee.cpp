@@ -63,6 +63,7 @@ void Employee::validateInformation()
 
     this->workName = jobTitle + " " + fullName;
 }
+
 // CONSTRUCTORS
 Employee::Employee() : fullName("Nguyen Van A"), workDays(0), jobTitle(positions[0]), workName(positions[0] + " " + fullName), salaryCoefficient(salaryMultipliers[0]) {}
 Employee::Employee(const std::string &fullName, int workDays, const std::string &jobTitle, const std::string &workName, float salaryCoefficient) : fullName(fullName), workDays(workDays), jobTitle(jobTitle), workName(workName), salaryCoefficient(salaryCoefficient)
@@ -102,9 +103,45 @@ float Employee::getSalaryCoefficient() const noexcept
 }
 
 // setter
-void Employee::setFullName(const string &newFullName) {}
-void Employee::setWorkDays(int newVal) {}
-void Employee::setJobTitle(const string &newTitle) {}
+void Employee::setFullName(const string &newFullName)
+{
+    if (newFullName.empty())
+    {
+        fullName = "Nguyen Van A";
+        return;
+    }
+
+    fullName = newFullName;
+    validateInformation();
+}
+void Employee::setWorkDays(int newVal)
+{
+    if (newVal < 0)
+    {
+        workDays = 0;
+        return;
+    }
+
+    workDays = newVal;
+    validateInformation();
+}
+void Employee::setJobTitle(const string &newTitle)
+{
+    bool isFound = false;
+    for (int i = 0; i < 4; i++)
+    {
+        if (positions[i] == newTitle)
+        {
+            isFound = true;
+            break;
+        }
+    }
+    if (newTitle.empty() || isFound)
+        jobTitle = positions[0];
+    else
+        jobTitle = newTitle;
+    validateInformation();
+}
 void Employee::setWorkName(const string &newName) {}
 void Employee::setSalaryCoefficient(float newVal) {}
 
