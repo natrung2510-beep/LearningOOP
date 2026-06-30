@@ -25,4 +25,17 @@ public:
     // DESTRUCTOR
     ~Employee();
     // OPERATIONS
+    // getter
+    std::string getfullName() const noexcept;
+    int getWorkDays() const;
+    std::string getJobTitle() const noexcept;
+    std::string getWorkName() const noexcept;
+    float getSalaryCoefficient() const noexcept;
+
+    // setter
+    void setFullName();
+    void setWorkDays();
+    void setJobTitle();
+    void setWorkName();
+    void setSalaryCoefficient();
 };
