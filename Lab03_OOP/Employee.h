@@ -16,4 +16,8 @@ public:
     Employee(const std::string &fullName, int workDays);
     Employee();
     Employee(const Employee &other); // chức danh , hs lương, số ngày làm việc
+
+    // DESTRUCTOR
+    ~Employee();
+    // OPERATIONS
 };
