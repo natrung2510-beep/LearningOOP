@@ -35,11 +35,11 @@ public:
     float getSalaryCoefficient() const noexcept;
 
     // setter
-    void setFullName();
-    void setWorkDays();
-    void setJobTitle();
-    void setWorkName();
-    void setSalaryCoefficient();
+    void setFullName(const std::string &newFullName);
+    void setWorkDays(int newVal);
+    void setJobTitle(const std::string &newTitle);
+    void setWorkName(const std::string &newName);
+    void setSalaryCoefficient(float newVal);
 
     // other
     void inputEmployee();
