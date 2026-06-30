@@ -78,11 +78,26 @@ Employee::~Employee()
 }
 // OPERATIONS
 // getter
-std::string Employee::getfullName() const noexcept {}
-int Employee::getWorkDays() const {}
-std::string Employee::getJobTitle() const noexcept {}
-std::string Employee::getWorkName() const noexcept {}
-float Employee::getSalaryCoefficient() const noexcept {}
+std::string Employee::getfullName() const noexcept
+{
+    return fullName;
+}
+int Employee::getWorkDays() const
+{
+    return workDays;
+}
+std::string Employee::getJobTitle() const noexcept
+{
+    return jobTitle;
+}
+std::string Employee::getWorkName() const noexcept
+{
+    return workName;
+}
+float Employee::getSalaryCoefficient() const noexcept
+{
+    return salaryCoefficient;
+}
 
 // setter
 void Employee::setFullName(const string &newFullName) {}
