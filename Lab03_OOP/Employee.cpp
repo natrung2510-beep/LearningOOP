@@ -216,7 +216,24 @@ void Employee::setJobTitle(const string &newTitle)
 void Employee::setWorkName(const string &newName)
 {
 }
-void Employee::setSalaryCoefficient(float newVal) {}
+void Employee::setSalaryCoefficient(float newVal)
+{
+    bool exist = false;
+    for (int i = 0; i < 4; i++)
+    {
+        if (abs(salaryMultipliers[i] - newVal) < 1e-6)
+        {
+            exist = true;
+            break;
+        }
+    }
+    if (exist)
+        this->salaryCoefficient = newVal;
+    else
+        this->salaryCoefficient = salaryMultipliers[0];
+
+    validateInformation();
+}
 
 // other
 void Employee::inputEmployee() {}
