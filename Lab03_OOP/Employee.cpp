@@ -188,12 +188,9 @@ void Employee::setFullName(const string &newFullName)
 void Employee::setWorkDays(int newVal)
 {
     if (newVal < 0)
-    {
         workDays = 0;
-        return;
-    }
-
-    workDays = newVal;
+    else
+        workDays = newVal;
     validateInformation();
 }
 void Employee::setJobTitle(const string &newTitle)
