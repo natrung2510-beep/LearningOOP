@@ -253,4 +253,10 @@ void Employee::inputEmployee()
 
 void Employee::outputEmployee() const
 {
+    cout << "--- THONG TIN NHAN VIEN ---" << "\n";
+    cout << "Ho va ten: " << fullName << "\n";
+    cout << "Ten cong viec: " << workName << "\n";
+    cout << "Chuc danh: " << jobTitle << "\n";
+    cout << "So ngay cong: " << workDays << "\n";
+    cout << "He so luong: " << salaryCoefficient << "\n";
 }
