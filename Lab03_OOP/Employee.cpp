@@ -232,5 +232,25 @@ void Employee::setSalaryCoefficient(float newVal)
 }
 
 // other
-void Employee::inputEmployee() {}
-void Employee::outputEmployee() const {}
+void Employee::inputEmployee()
+{
+    cout << "Nhap ho va ten: ";
+    getline(cin, fullName);
+
+    cout << "Nhap so ngay cong: ";
+    cin >> workDays;
+
+    cout << "Nhap chuc danh: ";
+    cin.ignore();
+    getline(cin, jobTitle);
+
+    cout << "Nhap he so luong: ";
+    cin >> salaryCoefficient;
+    cin.ignore();
+
+    validateInformation();
+}
+
+void Employee::outputEmployee() const
+{
+}
