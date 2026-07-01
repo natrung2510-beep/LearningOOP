@@ -207,7 +207,7 @@ void Employee::setJobTitle(const string &newTitle)
             break;
         }
     }
-    if (newTitle.empty() || isFound)
+    if (newTitle.empty() || !isFound)
         jobTitle = positions[0];
     else
         jobTitle = newTitle;
