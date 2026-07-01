@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Employee.h"
+#include <algorithm>
 using namespace std;
 
 // Helper function
@@ -61,9 +62,63 @@ void Employee::validateInformation()
     if (!checkValidSalaryCoefficient())
         salaryCoefficient = salaryMultipliers[target];
 
-    this->workName = jobTitle + " " + fullName;
+    this->workName = jobTitle + " " + this->fullName;
 }
+void Employee::extractName(string &newName) const
+{
+    if (newName.empty())
+    {
+        newName = "Nguyen Van A";
+        return;
+    }
 
+    string stardardizedName = "";
+    bool spaceFlag = false;
+    for (const auto &i : newName)
+    {
+        if (i == ' ')
+        {
+            spaceFlag = true;
+            continue;
+        }
+        if (spaceFlag && !stardardizedName.empty())
+            stardardizedName += ' ';
+
+        stardardizedName += i;
+        spaceFlag = false;
+    }
+    string cleanedName = stardardizedName;
+    for (int i = 0; i < 4; i++)
+    {
+        int size = positions[i].size();
+        while (true)
+        {
+            int frontIdx = cleanedName.find(positions[i]);
+            if (frontIdx == 0 && frontIdx + size < cleanedName.size())
+            {
+                cleanedName = cleanedName.substr(size + 1);
+                continue;
+            }
+
+            int rearIdx = cleanedName.rfind(positions[i]);
+            if (rearIdx != string::npos && rearIdx > 0 && rearIdx + positions[i].size() == cleanedName.size())
+            {
+                cleanedName = cleanedName.substr(0, rearIdx - 1);
+                continue;
+            }
+
+            break;
+        }
+    }
+    if (cleanedName.empty())
+    {
+        newName = "Nguyen Van A";
+    }
+    else
+    {
+        newName = cleanedName;
+    }
+}
 // CONSTRUCTORS
 Employee::Employee() : fullName("Nguyen Van A"), workDays(0), jobTitle(positions[0]), workName(positions[0] + " " + fullName), salaryCoefficient(salaryMultipliers[0]) {}
 Employee::Employee(const std::string &fullName, int workDays, const std::string &jobTitle, const std::string &workName, float salaryCoefficient) : fullName(fullName), workDays(workDays), jobTitle(jobTitle), workName(workName), salaryCoefficient(salaryCoefficient)
@@ -142,7 +197,9 @@ void Employee::setJobTitle(const string &newTitle)
         jobTitle = newTitle;
     validateInformation();
 }
-void Employee::setWorkName(const string &newName) {}
+void Employee::setWorkName(const string &newName)
+{
+}
 void Employee::setSalaryCoefficient(float newVal) {}
 
 // other
