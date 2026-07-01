@@ -177,12 +177,9 @@ float Employee::getSalaryCoefficient() const noexcept
 void Employee::setFullName(const string &newFullName)
 {
     if (newFullName.empty())
-    {
         fullName = "Nguyen Van A";
-        return;
-    }
-
-    fullName = newFullName;
+    else
+        fullName = newFullName;
     validateInformation();
 }
 void Employee::setWorkDays(int newVal)
