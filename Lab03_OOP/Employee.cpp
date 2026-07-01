@@ -215,6 +215,8 @@ void Employee::setJobTitle(const string &newTitle)
 }
 void Employee::setWorkName(const string &newName)
 {
+    this->workName = newName;
+    validateInformation();
 }
 void Employee::setSalaryCoefficient(float newVal)
 {
