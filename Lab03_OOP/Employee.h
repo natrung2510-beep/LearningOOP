@@ -15,6 +15,7 @@ private:
 
     bool checkValidJobTitle() const;
     bool checkValidSalaryCoefficient() const;
+    void extractName(std::string &newName) const;
     void validateInformation();
 
 public:
