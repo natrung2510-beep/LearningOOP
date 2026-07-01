@@ -62,7 +62,23 @@ void Employee::validateInformation()
     if (!checkValidSalaryCoefficient())
         salaryCoefficient = salaryMultipliers[target];
 
-    this->workName = jobTitle + " " + this->fullName;
+    auto correctFormat = this->jobTitle + " " + this->fullName;
+    if (workName != correctFormat)
+    {
+        int idx = workName.find(fullName);
+
+        if (idx != string::npos && fullName != "Nguyen Van A")
+        {
+            this->workName = jobTitle + static_cast<string>(" ") + fullName;
+        }
+        else
+        {
+            auto extractedName = this->workName;
+            extractName(extractedName);
+            this->fullName = extractedName;
+            this->workName = jobTitle + static_cast<string>(" ") + this->fullName;
+        }
+    }
 }
 void Employee::extractName(string &newName) const
 {
