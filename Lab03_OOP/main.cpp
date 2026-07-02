@@ -23,5 +23,19 @@ int main()
     Employee emp4(emp2);
     emp4.outputEmployee();
 
+    cout << "\n2. TEST SETTER & DONG BO LOGIC\n";
+    cout << "-> Tang ngay lam viec cua emp1 len 800:\n";
+    emp1.setWorkDays(800);
+    emp1.outputEmployee();
+
+    cout << "\n-> setFullName: Nhap nhieu khoang trang va lap chuc danh:\n";
+    emp1.setFullName("   Quan   Ly   Truong phong   ");
+    emp1.outputEmployee();
+
+    cout << "\n-> setWorkName: Nhap sai logic chuc danh hien tai:\n";
+    emp1.setWorkName("Giam doc Tran Van D");
+    emp1.outputEmployee();
+
+    cout << "\nDone.\n";
     return 0;
 }
