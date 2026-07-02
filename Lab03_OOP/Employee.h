@@ -29,7 +29,7 @@ public:
     ~Employee();
     // OPERATIONS
     // getter
-    std::string getfullName() const noexcept;
+    std::string getFullName() const noexcept;
     int getWorkDays() const;
     std::string getJobTitle() const noexcept;
     std::string getWorkName() const noexcept;
