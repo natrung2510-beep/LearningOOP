@@ -152,7 +152,7 @@ Employee::~Employee()
 }
 // OPERATIONS
 // getter
-std::string Employee::getfullName() const noexcept
+std::string Employee::getFullName() const noexcept
 {
     return fullName;
 }
