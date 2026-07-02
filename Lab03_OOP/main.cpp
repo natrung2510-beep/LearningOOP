@@ -36,6 +36,13 @@ int main()
     emp1.setWorkName("Giam doc Tran Van D");
     emp1.outputEmployee();
 
+    cout << "\n3. TEST GETTER (Lay tung thuoc tinh cua emp1)\n";
+    cout << "-> getFullName(): " << emp1.getFullName() << "\n";
+    cout << "-> getWorkDays(): " << emp1.getWorkDays() << "\n";
+    cout << "-> getJobTitle(): " << emp1.getJobTitle() << "\n";
+    cout << "-> getWorkName(): " << emp1.getWorkName() << "\n";
+    cout << "-> getSalaryCoefficient(): " << emp1.getSalaryCoefficient() << "\n";
+
     cout << "\nDone.\n";
     return 0;
 }
