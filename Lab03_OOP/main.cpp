@@ -43,6 +43,13 @@ int main()
     cout << "-> getWorkName(): " << emp1.getWorkName() << "\n";
     cout << "-> getSalaryCoefficient(): " << emp1.getSalaryCoefficient() << "\n";
 
+    cout << "\n4. TEST INPUT\n";
+    Employee emp5;
+    cout << "-> Nhap thong tin nhan vien moi:\n";
+    emp5.inputEmployee();
+    cout << "\nKet qua luu tru:\n";
+    emp5.outputEmployee();
+
     cout << "\nDone.\n";
     return 0;
 }
