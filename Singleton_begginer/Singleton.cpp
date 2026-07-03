@@ -20,6 +20,14 @@ public:
     }
 };
 
+class WaveManager : public Singleton<WaveManager>
+{
+    friend class Singleton<WaveManager>;
+};
+class EconomyManager : public Singleton<EconomyManager>
+{
+    friend class Singleton<EconomyManager>;
+};
 int main()
 {
 
