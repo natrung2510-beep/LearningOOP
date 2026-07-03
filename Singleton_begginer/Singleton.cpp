@@ -39,6 +39,11 @@ public:
 class EconomyManager : public Singleton<EconomyManager>
 {
     friend class Singleton<EconomyManager>;
+
+private:
+    EconomyManager() {}
+    ~EconomyManager() {}
+    int playerGold = 100;
 };
 int main()
 {
