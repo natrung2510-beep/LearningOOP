@@ -51,7 +51,20 @@ public:
         playerGold += amount;
         cout << "Gold : " << playerGold << ' \n';
     }
-    void buyTower(int cost);
+    bool buyTower(int cost)
+    {
+        if (cost <= playerGold)
+        {
+            playerGold -= cost;
+            cout << "Mua thanh cong! Con lai: " << playerGold << '\n';
+            return true;
+        }
+        else
+        {
+            cout << "Khong du tien!\n";
+            return false;
+        }
+    }
 };
 int main()
 {
