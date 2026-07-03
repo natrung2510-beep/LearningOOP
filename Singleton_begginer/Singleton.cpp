@@ -46,7 +46,11 @@ private:
     int playerGold = 100;
 
 public:
-    void earnGold(int amount);
+    void earnGold(int amount)
+    {
+        playerGold += amount;
+        cout << "Gold : " << playerGold << ' \n';
+    }
     void buyTower(int cost);
 };
 int main()
