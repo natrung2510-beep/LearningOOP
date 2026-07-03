@@ -44,6 +44,10 @@ private:
     EconomyManager() {}
     ~EconomyManager() {}
     int playerGold = 100;
+
+public:
+    void earnGold(int amount);
+    void buyTower(int cost);
 };
 int main()
 {
