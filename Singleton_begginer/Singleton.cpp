@@ -23,6 +23,13 @@ public:
 class WaveManager : public Singleton<WaveManager>
 {
     friend class Singleton<WaveManager>;
+
+private:
+    WaveManager() {};
+    ~WaveManager() {};
+
+    int waveCurrent = 1;
+    int monstersAlive = 0;
 };
 class EconomyManager : public Singleton<EconomyManager>
 {
