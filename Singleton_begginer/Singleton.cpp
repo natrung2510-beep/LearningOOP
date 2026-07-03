@@ -30,6 +30,11 @@ private:
 
     int waveCurrent = 1;
     int monstersAlive = 0;
+
+public:
+    void startNextWave(int spawnCounts);
+    void monsterDefeated();
+    void getMonstersAlive() const noexcept;
 };
 class EconomyManager : public Singleton<EconomyManager>
 {
