@@ -34,6 +34,7 @@ private:
 public:
     void startNextWave(int spawnCounts)
     {
+        monstersAlive = spawnCounts;
         cout << "Wave " << waveCurrent++ << " bắt đầu với " << spawnCounts << " quái";
     }
     void monsterDefeated()
