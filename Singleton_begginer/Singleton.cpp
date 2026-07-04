@@ -32,7 +32,10 @@ private:
     int monstersAlive = 0;
 
 public:
-    void startNextWave(int spawnCounts);
+    void startNextWave(int spawnCounts)
+    {
+        cout << "Wave " << waveCurrent++ << " bắt đầu với " << spawnCounts << " quái";
+    }
     void monsterDefeated();
     void getMonstersAlive() const noexcept;
 };
