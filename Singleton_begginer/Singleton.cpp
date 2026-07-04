@@ -36,7 +36,10 @@ public:
     {
         cout << "Wave " << waveCurrent++ << " bắt đầu với " << spawnCounts << " quái";
     }
-    void monsterDefeated();
+    void monsterDefeated()
+    {
+        cout << "Còn lại :" << ((monstersAlive > 0) ? --monstersAlive : 0) << " quái";
+    }
     void getMonstersAlive() const noexcept;
 };
 class EconomyManager : public Singleton<EconomyManager>
