@@ -78,6 +78,11 @@ public:
 };
 int main()
 {
+    cout << "--- GAME PHONG THU THANH (TOWER DEFENSE) START ---\n\n";
+    WaveManager &waveMng = WaveManager::getInstance();
+    auto &ecoMng = EconomyManager::getInstance();
+
+    cout << "\n--- CHUYEN SANG WAVE TIEP THEO ---\n";
 
     cin.get();
     return 0;
