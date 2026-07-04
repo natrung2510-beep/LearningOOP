@@ -97,5 +97,6 @@ int main()
     waveMng.monsterDefeated();
     ecoMng.earnGold(30);
 
+    ecoMng.buyTower(80);
     return 0;
 }
