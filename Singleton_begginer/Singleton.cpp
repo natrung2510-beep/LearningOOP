@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include <windows.h>
 using namespace std;
 template <typename T>
 class Singleton
@@ -35,11 +36,11 @@ public:
     void startNextWave(int spawnCounts)
     {
         monstersAlive = spawnCounts;
-        cout << "Wave " << waveCurrent++ << " bắt đầu với " << spawnCounts << " quái";
+        cout << "Wave " << waveCurrent++ << " bắt đầu với " << spawnCounts << " quái\n";
     }
     void monsterDefeated()
     {
-        cout << "Còn lại :" << ((monstersAlive > 0) ? --monstersAlive : 0) << " quái";
+        cout << "Còn lại :" << ((monstersAlive > 0) ? --monstersAlive : 0) << " quái\n";
     }
     int getMonstersAlive() const noexcept
     {
@@ -59,7 +60,7 @@ public:
     void earnGold(int amount)
     {
         playerGold += amount;
-        cout << "Gold : " << playerGold << ' \n';
+        cout << "Gold : " << playerGold << '\n';
     }
     bool buyTower(int cost)
     {
@@ -78,12 +79,15 @@ public:
 };
 int main()
 {
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
+
     cout << "--- GAME PHONG THU THANH (TOWER DEFENSE) START ---\n\n";
     WaveManager &waveMng = WaveManager::getInstance();
     auto &ecoMng = EconomyManager::getInstance();
 
+    waveMng.startNextWave(3);
     cout << "\n--- CHUYEN SANG WAVE TIEP THEO ---\n";
 
-    cin.get();
     return 0;
 }
