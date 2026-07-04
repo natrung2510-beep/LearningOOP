@@ -40,7 +40,10 @@ public:
     {
         cout << "Còn lại :" << ((monstersAlive > 0) ? --monstersAlive : 0) << " quái";
     }
-    void getMonstersAlive() const noexcept;
+    int getMonstersAlive() const noexcept
+    {
+        return monstersAlive;
+    }
 };
 class EconomyManager : public Singleton<EconomyManager>
 {
