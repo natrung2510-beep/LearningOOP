@@ -89,5 +89,13 @@ int main()
     waveMng.startNextWave(3);
     cout << "\n--- CHUYEN SANG WAVE TIEP THEO ---\n";
 
+    ecoMng.buyTower(70);
+
+    waveMng.monsterDefeated();
+    ecoMng.earnGold(30);
+
+    waveMng.monsterDefeated();
+    ecoMng.earnGold(30);
+
     return 0;
 }
