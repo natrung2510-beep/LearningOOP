@@ -247,7 +247,7 @@ void Employee::inputEmployee()
     cout << "Nhap he so luong: ";
     cin >> salaryCoefficient;
     cin.ignore();
-
+    this->workName = jobTitle + " " + fullName;
     validateInformation();
 }
 
