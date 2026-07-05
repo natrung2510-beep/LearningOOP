@@ -53,3 +53,38 @@ int main()
     cout << "\nDone.\n";
     return 0;
 }
+
+/*
+=========================================================================
+PHÂN TÍCH THỨ TỰ GỌI CONSTRUCTORS VÀ DESTRUCTORS:
+=========================================================================
+
+1. Khởi tạo đối tượng a và b:
+   - Gọi Constructor (2 tham số) để tạo đối tượng a (Họ tên: "Dat Thanh").
+   - Gọi Copy Constructor để tạo đối tượng b từ a. Đối tượng b khởi tạo
+     tên là "Nguyen Van A", sau đó gán đổi tên thành "Hai Dang".
+
+2. Vòng lặp for chạy 5 lần (i = 0 đến 4):
+   - Lần lặp i = 0:
+     + Gọi Copy Constructor tạo đối tượng cục bộ 'clone' từ b.
+     + Gán tên 'clone': "De tu thu 0 cua Truong phong Hai Dang".
+     + Gọi Destructor hủy đối tượng 'clone' ngay khi kết thúc vòng lặp.
+   - Lần lặp i = 1:
+     + Gọi Copy Constructor tạo đối tượng 'clone' (tên: "De tu thu 1 cua Truong phong Hai Dang").
+     + Gọi Destructor hủy đối tượng 'clone'.
+   - Lần lặp i = 2:
+     + Gọi Copy Constructor tạo đối tượng 'clone' (tên: "De tu thu 2 cua Truong phong Hai Dang").
+     + Gọi Destructor hủy đối tượng 'clone'.
+   - Lần lặp i = 3:
+     + Gọi Copy Constructor tạo đối tượng 'clone' (tên: "De tu thu 3 cua Truong phong Hai Dang").
+     + Gọi Destructor hủy đối tượng 'clone'.
+   - Lần lặp i = 4:
+     + Gọi Copy Constructor tạo đối tượng 'clone' (tên: "De tu thu 4 cua Truong phong Hai Dang").
+     + Gọi Destructor hủy đối tượng 'clone'.
+
+3. Kết thúc hàm main():
+   - Các đối tượng bị hủy theo cơ chế LIFO (Vào sau ra trước):
+     + Gọi Destructor hủy đối tượng b (Họ tên: "Hai Dang").
+     + Gọi Destructor hủy đối tượng a (Họ tên: "Dat Thanh").
+=========================================================================
+*/
