@@ -11,4 +11,10 @@ public:
     Fraction(int num, int denom);
     Fraction();
     Fraction(int num);
+
+    // OPERATIONS
+    Fraction plus(const Fraction &other) const;
+    Fraction substract(const Fraction &other) const;
+    Fraction multiply(const Fraction &other) const;
+    Fraction divide(const Fraction &other) const;
 };
