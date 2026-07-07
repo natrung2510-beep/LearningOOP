@@ -24,4 +24,9 @@ public:
     // setter
     void setNum();
     void setDenom();
+    // Input
+    void inputFraction();
+    // Output
+    void output_Decimal() const;
+    void output_Fraction() const;
 };
