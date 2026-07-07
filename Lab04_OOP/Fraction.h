@@ -29,4 +29,7 @@ public:
     // Output
     void output_Decimal() const;
     void output_Fraction() const;
+
+    // DESTRUCTOR
+    ~Fraction();
 };
