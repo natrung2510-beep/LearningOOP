@@ -31,7 +31,13 @@ Fraction Fraction::substract(const Fraction &other) const
     *res.denominator = (*this->numerator) * (*other.denominator) - (*other.numerator) * (*this->denominator);
     return res;
 }
-Fraction Fraction::multiply(const Fraction &other) const {}
+Fraction Fraction::multiply(const Fraction &other) const
+{
+    Fraction res;
+    *res.denominator = (*this->denominator) * (*other.denominator);
+    *res.denominator = (*this->numerator) * (*other.numerator);
+    return res;
+}
 Fraction Fraction::divide(const Fraction &other) const {}
 // getter
 int *Fraction::getNum() const noexcept
