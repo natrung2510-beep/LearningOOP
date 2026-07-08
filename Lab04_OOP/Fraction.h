@@ -22,8 +22,8 @@ public:
     int *getNum() const noexcept;
     int *getDenom() const noexcept;
     // setter
-    void setNum();
-    void setDenom();
+    void setNum(int num);
+    void setDenom(int denom);
     // Input
     void inputFraction();
     // Output
