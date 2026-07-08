@@ -8,7 +8,7 @@ Fraction::Fraction(int num, int denom)
 {
     if (denom == 0)
         throw invalid_argument("Mẫu số phải khác 0!\n");
-    
+
     this->numerator = new int(num);
     this->denominator = new int(denom);
 }
@@ -17,7 +17,13 @@ Fraction::Fraction() : Fraction(1) {}
 
 // OPERATIONS
 // Calculation tools
-Fraction Fraction::plus(const Fraction &other) const {}
+Fraction Fraction::plus(const Fraction &other) const
+{
+    Fraction res;
+    *res.denominator = (*this->denominator) * (*other.denominator);
+    *res.denominator = (*this->denominator) * (*other.numerator) * (*other.denominator) * (*this->numerator);
+    return res;
+}
 Fraction Fraction::substract(const Fraction &other) const {}
 Fraction Fraction::multiply(const Fraction &other) const {}
 Fraction Fraction::divide(const Fraction &other) const {}
@@ -31,14 +37,17 @@ int *Fraction::getDenom() const noexcept
     return this->denominator;
 }
 // setter
-void Fraction::setNum(int num) {
+void Fraction::setNum(int num)
+{
     *numerator = num;
 }
-void Fraction::setDenom(int denom) {
+void Fraction::setDenom(int denom)
+{
     if (denom == 0)
         throw invalid_argument("Mẫu số phải khác 0!\n");
 
-    if (denom < 0){
+    if (denom < 0)
+    {
         denom = -denom;
         *numerator = -*numerator;
     }
