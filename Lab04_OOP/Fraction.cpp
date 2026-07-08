@@ -24,8 +24,8 @@ Fraction Fraction::substract(const Fraction &other) const {}
 Fraction Fraction::multiply(const Fraction &other) const {}
 Fraction Fraction::divide(const Fraction &other) const {}
 // getter
-int Fraction::getNum() const noexcept {}
-int Fraction::getDenom() const noexcept {}
+int *Fraction::getNum() const noexcept {}
+int *Fraction::getDenom() const noexcept {}
 // setter
 void Fraction::setNum() {}
 void Fraction::setDenom() {}
