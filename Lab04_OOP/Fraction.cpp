@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Fraction.h"
+#include <stdexcept>
 using namespace std;
 
 // CONSTRUCTORs
@@ -7,8 +8,8 @@ Fraction::Fraction(int num, int denom)
 {
     if (denom == 0)
     {
-        cout << "Mẫu số phải khác 0!\n";
         denom = 1;
+        throw invalid_argument("Mẫu số phải khác 0!\n");
     }
     this->numerator = new int(num);
     this->denominator = new int(denom);
