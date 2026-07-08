@@ -21,10 +21,16 @@ Fraction Fraction::plus(const Fraction &other) const
 {
     Fraction res;
     *res.denominator = (*this->denominator) * (*other.denominator);
-    *res.denominator = (*this->denominator) * (*other.numerator) * (*other.denominator) * (*this->numerator);
+    *res.denominator = (*this->denominator) * (*other.numerator) + (*other.denominator) * (*this->numerator);
     return res;
 }
-Fraction Fraction::substract(const Fraction &other) const {}
+Fraction Fraction::substract(const Fraction &other) const
+{
+    Fraction res;
+    *res.denominator = (*this->denominator) * (*other.denominator);
+    *res.denominator = (*this->numerator) * (*other.denominator) - (*other.numerator) * (*this->denominator);
+    return res;
+}
 Fraction Fraction::multiply(const Fraction &other) const {}
 Fraction Fraction::divide(const Fraction &other) const {}
 // getter
