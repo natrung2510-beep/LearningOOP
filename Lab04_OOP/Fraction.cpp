@@ -3,9 +3,18 @@
 using namespace std;
 
 // CONSTRUCTORs
-Fraction::Fraction(int num, int denom) {}
-Fraction::Fraction() {}
-Fraction::Fraction(int num) {}
+Fraction::Fraction(int num, int denom)
+{
+    if (denom == 0)
+    {
+        cout << "Mẫu số phải khác 0!\n";
+        denom = 1;
+    }
+    this->numerator = new int(num);
+    this->denominator = new int(denom);
+}
+Fraction::Fraction(int num) : Fraction(num, 1) {}
+Fraction::Fraction() : Fraction(1) {}
 
 // OPERATIONS
 // Calculation tools
