@@ -7,10 +7,8 @@ using namespace std;
 Fraction::Fraction(int num, int denom)
 {
     if (denom == 0)
-    {
-        denom = 1;
         throw invalid_argument("Mẫu số phải khác 0!\n");
-    }
+    
     this->numerator = new int(num);
     this->denominator = new int(denom);
 }
@@ -33,8 +31,19 @@ int *Fraction::getDenom() const noexcept
     return this->denominator;
 }
 // setter
-void Fraction::setNum() {}
-void Fraction::setDenom() {}
+void Fraction::setNum(int num) {
+    *numerator = num;
+}
+void Fraction::setDenom(int denom) {
+    if (denom == 0)
+        throw invalid_argument("Mẫu số phải khác 0!\n");
+
+    if (denom < 0){
+        denom = -denom;
+        *numerator = -*numerator;
+    }
+    *denominator = denom;
+}
 // Input
 void Fraction::inputFraction() {}
 // Output
