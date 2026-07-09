@@ -90,4 +90,10 @@ void Fraction::output_Fraction() const
 }
 
 // DESTRUCTOR
-Fraction::~Fraction() {}
+Fraction::~Fraction()
+{
+    delete numerator;
+    numerator = nullptr;
+    delete denominator;
+    denominator = nullptr;
+}
