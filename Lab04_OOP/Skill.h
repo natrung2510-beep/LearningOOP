@@ -1,0 +1,30 @@
+#pragma once
+#include <string>
+#include <vector>
+
+class Skill
+{
+private:
+    std::string skillName;
+    unsigned int skillLevel;
+
+public:
+    // CONSTRUCTORS
+    Skill(const std::string &name, unsigned int level);
+    Skill(const std::string &name);
+    Skill(unsigned int level);
+    Skill();
+    Skill(const Skill &skill);
+    // OPERATIONS
+    // getter
+    std::string getSkillName() const noexcept;
+    unsigned int getSkillLevel() const noexcept;
+    // setter
+    void setkillName(const std::string newName);
+    void setSkillLevel(unsigned int newLevel);
+    // input
+
+    // ouput
+
+    // DESTRUCTOR
+};
