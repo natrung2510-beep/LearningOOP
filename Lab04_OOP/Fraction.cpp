@@ -20,32 +20,37 @@ Fraction::Fraction(const Fraction &other) : Fraction(*other.numerator, *other.de
 // Calculation tools
 Fraction Fraction::plus(const Fraction &other) const
 {
-    Fraction res;
-    *res.denominator = (*this->denominator) * (*other.denominator);
-    *res.numerator = (*this->denominator) * (*other.numerator) + (*other.denominator) * (*this->numerator);
-    return res;
+    int newDenom = (*this->denominator) * (*other.denominator);
+    int newNum = (*this->denominator) * (*other.numerator) + (*other.denominator) * (*this->numerator);
+
+    return Fraction(newNum, newDenom);
 }
+
+// Phép TRỪ
 Fraction Fraction::substract(const Fraction &other) const
 {
-    Fraction res;
-    *res.denominator = (*this->denominator) * (*other.denominator);
-    *res.numerator = (*this->numerator) * (*other.denominator) - (*other.numerator) * (*this->denominator);
-    return res;
+    int newDenom = (*this->denominator) * (*other.denominator);
+    int newNum = (*this->numerator) * (*other.denominator) - (*other.numerator) * (*this->denominator);
+
+    return Fraction(newNum, newDenom);
 }
+
 Fraction Fraction::multiply(const Fraction &other) const
 {
-    Fraction res;
-    *res.denominator = (*this->denominator) * (*other.denominator);
-    *res.numerator = (*this->numerator) * (*other.numerator);
-    return res;
+    int newDenom = (*this->denominator) * (*other.denominator);
+    int newNum = (*this->numerator) * (*other.numerator);
+
+    return Fraction(newNum, newDenom);
 }
+
 Fraction Fraction::divide(const Fraction &other) const
 {
-    Fraction res;
-    *res.denominator = (*this->denominator) * (*other.numerator);
-    *res.numerator = (*this->numerator) * (*other.denominator);
-    return res;
+    int newDenom = (*this->denominator) * (*other.numerator);
+    int newNum = (*this->numerator) * (*other.denominator);
+
+    return Fraction(newNum, newDenom);
 }
+
 // getter
 int *Fraction::getNum() const noexcept
 {
