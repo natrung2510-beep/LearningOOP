@@ -29,7 +29,10 @@ public:
     unsigned int getHeroMana() const noexcept;
     unsigned int getHeroLevel() const noexcept;
     // setter
-
+    void setHeroName(const std::string &newName);
+    void setHeroHealth(unsigned int hp);
+    void setHeroMana(unsigned int mana);
+    void setHeroLevel(unsigned int level);
     // input
 
     // output
