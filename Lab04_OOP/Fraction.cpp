@@ -14,6 +14,7 @@ Fraction::Fraction(int num, int denom)
 }
 Fraction::Fraction(int num) : Fraction(num, 1) {}
 Fraction::Fraction() : Fraction(1) {}
+Fraction::Fraction(const Fraction &other) : Fraction(*other.numerator, *other.denominator) {}
 
 // OPERATIONS
 // Calculation tools
