@@ -89,7 +89,7 @@ void Fraction::output_Decimal() const
 }
 void Fraction::output_Fraction() const
 {
-    cout << "Phân số của bạn là: " << numerator << "/" << denominator << '\n';
+    cout << "Phân số của bạn là: " << *numerator << "/" << *denominator << '\n';
 }
 
 // DESTRUCTOR
