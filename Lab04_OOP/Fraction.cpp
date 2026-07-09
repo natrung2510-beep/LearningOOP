@@ -82,9 +82,11 @@ void Fraction::inputFraction()
 // Output
 void Fraction::output_Decimal() const
 {
+    cout << "Phân số của bạn được viết dưới dạng số thập phân là: " << static_cast<float>(*numerator) / *denominator << '\n';
 }
 void Fraction::output_Fraction() const
 {
+    cout << "Phân số của bạn là: " << numerator << "/" << denominator << '\n';
 }
 
 // DESTRUCTOR
