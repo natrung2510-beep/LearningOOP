@@ -11,6 +11,7 @@ public:
     Fraction(int num, int denom);
     Fraction();
     Fraction(int num);
+    Fraction(const Fraction &other);
 
     // OPERATIONS
     // Calculation tools
