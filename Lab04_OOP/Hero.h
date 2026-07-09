@@ -24,6 +24,11 @@ public:
 
     // OPERATIONs
     // getter
+    std::string getHeroName() const noexcept;
+    unsigned int getHeroHealth() const noexcept;
+    unsigned int getHeroMana() const noexcept;
+    unsigned int getHeroLevel() const noexcept;
+    // setter
 
     // input
 
