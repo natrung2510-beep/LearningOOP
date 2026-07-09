@@ -23,8 +23,9 @@ public:
     void setkillName(const std::string newName);
     void setSkillLevel(unsigned int newLevel);
     // input
-
+    void inputSkill();
     // ouput
-
+    void outputSkill() const noexcept;
     // DESTRUCTOR
+    ~Skill();
 };
