@@ -72,10 +72,20 @@ void Fraction::setDenom(int denom)
     *denominator = denom;
 }
 // Input
-void Fraction::inputFraction() {}
+void Fraction::inputFraction()
+{
+    cout << "Mời nhập tử số:";
+    cin >> *this->numerator;
+    cout << "\nMời nhập tử số:";
+    cin >> *this->denominator;
+}
 // Output
-void Fraction::output_Decimal() const {}
-void Fraction::output_Fraction() const {}
+void Fraction::output_Decimal() const
+{
+}
+void Fraction::output_Fraction() const
+{
+}
 
 // DESTRUCTOR
 Fraction::~Fraction() {}
