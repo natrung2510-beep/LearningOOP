@@ -34,10 +34,12 @@ public:
     void setHeroMana(unsigned int mana);
     void setHeroLevel(unsigned int level);
     // input
-
+    void inputHero();
     // output
-
+    void outputHero() const noexcept;
     // others
-
+    void printEligibleSkills() const noexcept;
+    void removeSkills();
     // DESTRUCTOR
+    ~Hero();
 };
