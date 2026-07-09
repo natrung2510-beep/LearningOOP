@@ -74,10 +74,13 @@ void Fraction::setDenom(int denom)
 // Input
 void Fraction::inputFraction()
 {
+    int num, denom;
     cout << "Mời nhập tử số:";
-    cin >> *this->numerator;
-    cout << "\nMời nhập tử số:";
-    cin >> *this->denominator;
+    cin >> num;
+    setNum(num);
+    cout << "\nMời nhập mẫu số:";
+    cin >> denom;
+    setDenom(denom);
 }
 // Output
 void Fraction::output_Decimal() const
