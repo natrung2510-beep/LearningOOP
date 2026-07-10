@@ -26,7 +26,7 @@ unsigned int Skill::getSkillLevel() const noexcept
     return this->skillLevel;
 }
 // setter
-void Skill::setkillName(const std::string newName)
+void Skill::setSkillName(const std::string newName)
 {
     if (newName.empty())
         throw invalid_argument("Tên kĩ năng không thể là một chuỗi rỗng!\n");
@@ -38,7 +38,17 @@ void Skill::setSkillLevel(unsigned int newLevel)
     skillLevel = newLevel;
 }
 // input
-void Skill::inputSkill() {}
+void Skill::inputSkill()
+{
+    string name;
+    unsigned int level;
+    cout << "Mời nhập tên cho kĩ năng: ";
+    getline(cin, name);
+    setSkillName(name);
+    cout << "\nMời nhập cấp độ cần thiết cho kĩ năng: ";
+    cin >> level;
+    setSkillLevel(level);
+}
 // ouput
 void Skill::outputSkill() const noexcept {}
 // DESTRUCTOR
