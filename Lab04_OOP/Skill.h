@@ -19,7 +19,7 @@ public:
     std::string getSkillName() const noexcept;
     unsigned int getSkillLevel() const noexcept;
     // setter
-    void setkillName(const std::string newName);
+    void setSkillName(const std::string newName);
     void setSkillLevel(unsigned int newLevel);
     // input
     void inputSkill();
