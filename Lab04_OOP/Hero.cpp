@@ -158,6 +158,19 @@ void Hero::outputHero() const noexcept
 // others
 void Hero::printEligibleSkills() const noexcept
 {
+    cout << "---- DANH SÁCH CÁC KĨ NĂNG CÓ THỂ HỌC ----\n\n";
+    bool hasSkill = false;
+    for (const auto &i : this->skillList)
+    {
+        if (i && i->getSkillLevel() <= heroLevel)
+        {
+            cout << "+ " << i->getSkillName() << " (cấp " << i->getSkillLevel() << ")\n";
+            hasSkill = true;
+        }
+    }
+
+    if (!hasSkill)
+        cout << "  (Không có kĩ năng nào phù hợp với cấp độ hiện tại của Hero)\n";
 }
 void Hero::removeSkills()
 {
