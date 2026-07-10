@@ -89,6 +89,43 @@ void Hero::inputHero()
     cin >> level;
     cin.ignore();
     setHeroLevel(level);
+
+    int n;
+    cout << "\nMời nhập số kĩ năng bạn muốn Hero học: ";
+    cin >> n;
+    cin.ignore();
+    if (n < 0)
+        n = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << "Mời nhập kĩ năng thứ " << i + 1 << '.';
+        try
+        {
+            Skill tempSkill;
+            tempSkill.inputSkill();
+            cin.ignore();
+            this->skillList.push_back(new Skill(tempSkill));
+        }
+        catch (const invalid_argument &e)
+        {
+            cerr << "LỖI: " << e.what();
+            cerr << "Vui lòng nhập lại thông tin kĩ năng!\n";
+            i--;
+        }
+        catch (const exception &e)
+        {
+            cerr << "LỖI HỆ THỐNG : " << e.what() << '\n';
+            cerr << "Vui lòng nhập lại thông tin kĩ năng!\n";
+            i--;
+        }
+        catch (...)
+        {
+            cerr << "LỖI KHÔNG XÁC ĐỊNH!\n";
+            cerr << "Vui lòng nhập lại thông tin kĩ năng!\n";
+            i--;
+        }
+    }
 }
 // output
 void Hero::outputHero() const noexcept {}
