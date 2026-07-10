@@ -128,7 +128,33 @@ void Hero::inputHero()
     }
 }
 // output
-void Hero::outputHero() const noexcept {}
+void Hero::outputHero() const noexcept
+{
+    cout << "--- THÔNG TIN HERO ---\n";
+    cout << "Tên Hero: " << this->heroName << "\n";
+    cout << "Sinh lực: " << this->heroHealth << "\n";
+    cout << "Mana: " << this->heroMana << "\n";
+    cout << "Cấp độ: " << this->heroLevel << "\n";
+
+    cout << "Danh sách kĩ năng:\n";
+    if (this->skillList.empty())
+    {
+        cout << "(Trống - Chưa học kĩ năng nào)\n";
+    }
+    else
+    {
+        int count = 1;
+        for (const auto &skillPtr : this->skillList)
+        {
+            if (skillPtr)
+            {
+                cout << "  + Kĩ năng " << count++ << ":\n";
+                skillPtr->outputSkill();
+                cout << "\n";
+            }
+        }
+    }
+}
 // others
 void Hero::printEligibleSkills() const noexcept {}
 void Hero::removeSkills() {}
