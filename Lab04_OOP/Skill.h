@@ -12,7 +12,6 @@ public:
     // CONSTRUCTORS
     Skill(const std::string &name, unsigned int level);
     Skill(const std::string &name);
-    Skill(unsigned int level);
     Skill();
     Skill(const Skill &skill);
     // OPERATIONS
