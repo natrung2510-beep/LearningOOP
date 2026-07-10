@@ -26,7 +26,7 @@ unsigned int Skill::getSkillLevel() const noexcept
     return this->skillLevel;
 }
 // setter
-void Skill::setSkillName(const std::string newName)
+void Skill::setSkillName(const std::string &newName)
 {
     if (newName.empty())
         throw invalid_argument("Tên kĩ năng không thể là một chuỗi rỗng!\n");
