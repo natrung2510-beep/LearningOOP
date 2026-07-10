@@ -45,10 +45,25 @@ unsigned int Hero::getHeroLevel() const noexcept
     return heroLevel;
 }
 // setter
-void Hero::setHeroName(const std::string &newName) {}
-void Hero::setHeroHealth(unsigned int hp) {}
-void Hero::setHeroMana(unsigned int mana) {}
-void Hero::setHeroLevel(unsigned int level) {}
+void Hero::setHeroName(const std::string &newName)
+{
+    if (newName.empty())
+        throw invalid_argument("Tên Hero không thể là chuỗi rỗng!\n");
+
+    heroName = newName;
+}
+void Hero::setHeroHealth(unsigned int hp)
+{
+    heroHealth = hp;
+}
+void Hero::setHeroMana(unsigned int mana)
+{
+    heroMana = mana;
+}
+void Hero::setHeroLevel(unsigned int level)
+{
+    heroLevel = level;
+}
 // input
 void Hero::inputHero() {}
 // output
