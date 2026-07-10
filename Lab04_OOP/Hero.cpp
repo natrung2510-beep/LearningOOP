@@ -65,7 +65,28 @@ void Hero::setHeroLevel(unsigned int level)
     heroLevel = level;
 }
 // input
-void Hero::inputHero() {}
+void Hero::inputHero()
+{
+    string name;
+    cout << "Mời nhập tên của Hero: ";
+    getline(cin, name);
+    setHeroName(name);
+
+    unsigned int hp;
+    cout << "\nMời nhập điểm sinh lực của Hero: ";
+    cin >> hp;
+    setHeroHealth(hp);
+
+    unsigned int mana;
+    cout << "\nMời nhập mana của Hero: ";
+    cin >> mana;
+    setHeroMana(mana);
+
+    unsigned int level;
+    cout << "\nMời nhập cấp độ của Hero: ";
+    cin >> level;
+    setHeroLevel(level);
+}
 // output
 void Hero::outputHero() const noexcept {}
 // others
