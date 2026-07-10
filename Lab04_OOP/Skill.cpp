@@ -50,6 +50,13 @@ void Skill::inputSkill()
     setSkillLevel(level);
 }
 // ouput
-void Skill::outputSkill() const noexcept {}
+void Skill::outputSkill() const noexcept
+{
+    cout << "Tên kĩ năng: " << skillName << '\n';
+    cout << "Cấp độ yêu cầu: " << skillLevel << '\n';
+}
 // DESTRUCTOR
-Skill::~Skill() {}
+Skill::~Skill()
+{
+    cout << "Đã xoá kĩ năng thành công!\n";
+}
