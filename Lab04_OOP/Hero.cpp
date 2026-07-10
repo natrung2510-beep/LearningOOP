@@ -75,16 +75,19 @@ void Hero::inputHero()
     unsigned int hp;
     cout << "\nMời nhập điểm sinh lực của Hero: ";
     cin >> hp;
+    cin.ignore();
     setHeroHealth(hp);
 
     unsigned int mana;
     cout << "\nMời nhập mana của Hero: ";
     cin >> mana;
+    cin.ignore();
     setHeroMana(mana);
 
     unsigned int level;
     cout << "\nMời nhập cấp độ của Hero: ";
     cin >> level;
+    cin.ignore();
     setHeroLevel(level);
 }
 // output
