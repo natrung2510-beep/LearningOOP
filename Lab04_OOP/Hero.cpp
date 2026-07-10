@@ -159,4 +159,13 @@ void Hero::outputHero() const noexcept
 void Hero::printEligibleSkills() const noexcept {}
 void Hero::removeSkills() {}
 // DESTRUCTOR
-Hero::~Hero() {}
+Hero::~Hero()
+{
+    for (const auto &i : this->skillList)
+    {
+        if (!i)
+            continue;
+
+        delete i;
+    }
+}
