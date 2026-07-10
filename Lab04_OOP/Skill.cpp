@@ -48,6 +48,7 @@ void Skill::inputSkill()
     cout << "\nMời nhập cấp độ cần thiết cho kĩ năng: ";
     cin >> level;
     setSkillLevel(level);
+    cin.ignore();
 }
 // ouput
 void Skill::outputSkill() const noexcept
