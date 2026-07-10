@@ -17,8 +17,14 @@ Skill::Skill() : Skill("Tốc biến", 1) {}
 Skill::Skill(const Skill &skill) : Skill(skill.skillName, skill.skillLevel) {}
 // OPERATIONS
 // getter
-std::string Skill::getSkillName() const noexcept {}
-unsigned int Skill::getSkillLevel() const noexcept {}
+std::string Skill::getSkillName() const noexcept
+{
+    return this->skillName;
+}
+unsigned int Skill::getSkillLevel() const noexcept
+{
+    return this->skillLevel;
+}
 // setter
 void Skill::setkillName(const std::string newName) {}
 void Skill::setSkillLevel(unsigned int newLevel) {}
