@@ -156,8 +156,34 @@ void Hero::outputHero() const noexcept
     }
 }
 // others
-void Hero::printEligibleSkills() const noexcept {}
-void Hero::removeSkills() {}
+void Hero::printEligibleSkills() const noexcept
+{
+}
+void Hero::removeSkills()
+{
+    int size = this->skillList.size();
+    if (!size)
+    {
+        cout << "Danh sách kĩ năng trống! Hero chưa học được kĩ năng nào!\n";
+        return;
+    }
+    int n;
+    cout << "Nhập số lượng kĩ năng bạn muốn loại bỏ: ";
+    cin >> n;
+    cin.ignore();
+    if (n < 0)
+        n = 0;
+    if (n > size)
+        n = size;
+
+    for (int i = 0; i < n; i++)
+    {
+        auto *skillPtr = this->skillList.back();
+        if (skillPtr)
+            delete skillPtr;
+        this->skillList.pop_back();
+    }
+}
 // DESTRUCTOR
 Hero::~Hero()
 {
