@@ -104,7 +104,6 @@ void Hero::inputHero()
         {
             Skill tempSkill;
             tempSkill.inputSkill();
-            cin.ignore();
             this->skillList.push_back(new Skill(tempSkill));
         }
         catch (const invalid_argument &e)
@@ -156,7 +155,7 @@ void Hero::outputHero() const noexcept
     }
 }
 // others
-void Hero::printEligibleSkills() const noexcept
+void Hero::printEligibleSkills(const vector<Skill> &skillPool) const noexcept
 {
     cout << "---- DANH SÁCH CÁC KĨ NĂNG CÓ THỂ HỌC ----\n\n";
     bool hasSkill = false;
@@ -164,7 +163,7 @@ void Hero::printEligibleSkills() const noexcept
     {
         if (i && i->getSkillLevel() <= heroLevel)
         {
-            cout << "+ " << i->getSkillName() << " (cấp " << i->getSkillLevel() << ")\n";
+            cout << "+ " << i->getSkillName() << " (Cấp yêu cầu: " << i->getSkillLevel() << ")\n";
             hasSkill = true;
         }
     }
