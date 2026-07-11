@@ -56,7 +56,7 @@ public:
     // output
     void outputHero() const noexcept;
     // others
-    void printEligibleSkills() const noexcept;
+    void printEligibleSkills(const std::vector<Skill> &skillPool) const noexcept;
     void removeSkills();
     // DESTRUCTOR
     ~Hero();
