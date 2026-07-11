@@ -105,6 +105,22 @@ void Hero::inputHero()
             Skill tempSkill;
             tempSkill.inputSkill();
             this->skillList.push_back(new Skill(tempSkill));
+
+            bool duplicate = false;
+            for (const auto &skillProber : globalSkillPool)
+            {
+                if (tempSkill.getSkillName() == skillProber.getSkillName() && tempSkill.getSkillLevel() == skillProber.getSkillLevel())
+                {
+                    duplicate = true;
+                    break;
+                }
+            }
+
+            if (!duplicate)
+            {
+                cout << "Bạn vừa thêm một kĩ năng mới!\n";
+                globalSkillPool.push_back(tempSkill);
+            }
         }
         catch (const invalid_argument &e)
         {
