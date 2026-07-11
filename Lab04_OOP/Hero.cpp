@@ -171,15 +171,15 @@ void Hero::outputHero() const noexcept
     }
 }
 // others
-void Hero::printEligibleSkills(const vector<Skill> &skillPool) const noexcept
+void Hero::printEligibleSkills() const noexcept
 {
     cout << "---- DANH SÁCH CÁC KĨ NĂNG CÓ THỂ HỌC ----\n\n";
     bool hasSkill = false;
-    for (const auto &i : this->skillList)
+    for (const auto &skillProber : Hero::globalSkillPool)
     {
-        if (i && i->getSkillLevel() <= heroLevel)
+        if (skillProber.getSkillLevel() <= heroLevel)
         {
-            cout << "+ " << i->getSkillName() << " (Cấp yêu cầu: " << i->getSkillLevel() << ")\n";
+            cout << "+ " << skillProber.getSkillName() << " (Cấp yêu cầu: " << skillProber.getSkillLevel() << ")\n";
             hasSkill = true;
         }
     }
