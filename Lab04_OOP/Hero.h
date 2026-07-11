@@ -14,6 +14,24 @@ private:
     static constexpr const char *heroName_default = "Valhein";
     static constexpr unsigned int hp_default = 3000;
     static constexpr unsigned int mana_default = 500;
+    static inline std::vector<Skill> globalSkillPool = {
+        // --- NHÓM KỸ NĂNG CƠ BẢN (Cấp 1 - Cấp 3) ---
+        Skill("Tốc biến", 1),
+        Skill("Chuyến săn mạo hiểm", 1),
+        Skill("Hồi máu", 2),
+        Skill("Thanh tẩy", 3),
+
+        // --- NHÓM KỸ NĂNG KHỐNG CHẾ & CHIẾN THUẬT (Cấp 4 - Cấp 8) ---
+        Skill("Lời nguyền tử thần", 4),
+        Skill("Trừng trị", 5),
+        Skill("Gió lốc", 6),
+        Skill("Lá chắn ma thuật", 7),
+        Skill("Ám ảnh kinh hoàng", 8),
+
+        // --- NHÓM CHIÊU CUỐI ULTIMATE (Cấp 10 - Cấp 12) ---
+        Skill("Bão đạn", 10),
+        Skill("Ma trận ảo ảnh", 11),
+        Skill("Thiên thạch hủy diệt", 12)};
 
 public:
     // CONSTRUCTORs
