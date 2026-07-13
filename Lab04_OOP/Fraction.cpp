@@ -114,7 +114,10 @@ void Fraction::output_Fraction() const noexcept
     int displayNum = *numerator / GCD;
     int displayDenom = *denominator / GCD;
     if (*denominator < 0)
+    {
         displayDenom = -displayDenom;
+        displayNum = -displayNum;
+    }
 
     cout << "Phân số của bạn là: " << displayNum << "/" << displayDenom << '\n';
 }
