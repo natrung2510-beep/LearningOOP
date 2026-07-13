@@ -22,6 +22,11 @@ Fraction::Fraction(int num, int denom)
     if (denom == 0)
         throw invalid_argument("Mẫu số phải khác 0!\n");
 
+    if (denom < 0)
+    {
+        denom = -denom;
+        num = -num;
+    }
     this->numerator = new int(num);
     this->denominator = new int(denom);
 }
@@ -39,7 +44,6 @@ Fraction Fraction::plus(const Fraction &other) const
     return Fraction(newNum, newDenom);
 }
 
-// Phép TRỪ
 Fraction Fraction::substract(const Fraction &other) const
 {
     int newDenom = (*this->denominator) * (*other.denominator);
