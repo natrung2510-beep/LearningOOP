@@ -111,7 +111,12 @@ void Fraction::output_Decimal() const noexcept
 void Fraction::output_Fraction() const noexcept
 {
     int GCD = gcd(*numerator, *denominator);
-    cout << "Phân số của bạn là: " << *numerator / GCD << "/" << *denominator / GCD << '\n';
+    int displayNum = *numerator / GCD;
+    int displayDenom = *denominator / GCD;
+    if (*denominator < 0)
+        displayDenom = -displayDenom;
+
+    cout << "Phân số của bạn là: " << displayNum << "/" << displayDenom << '\n';
 }
 
 // DESTRUCTOR
