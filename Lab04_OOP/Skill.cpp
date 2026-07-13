@@ -42,9 +42,20 @@ void Skill::inputSkill()
 {
     string name;
     unsigned int level;
-    cout << "\nMời nhập tên cho kĩ năng: ";
-    getline(cin, name);
-    setSkillName(name);
+    while (true)
+    {
+        cout << "\nMời nhập tên cho kĩ năng: ";
+        getline(cin, name);
+        try
+        {
+            setSkillName(name);
+            break;
+        }
+        catch (const invalid_argument &e)
+        {
+            cerr << "LỖI: " << e.what() << "VUI LÒNG NHẬP LẠI\n\n";
+        }
+    }
     cout << "\nMời nhập cấp độ cần thiết cho kĩ năng: ";
     cin >> level;
     setSkillLevel(level);
