@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Fraction.h"
 #include <stdexcept>
+#include <cmath>
 using namespace std;
 
 // CONSTRUCTORs
@@ -52,13 +53,13 @@ Fraction Fraction::divide(const Fraction &other) const
 }
 
 // getter
-int *Fraction::getNum() const noexcept
+int Fraction::getNum() const noexcept
 {
-    return this->numerator;
+    return *this->numerator;
 }
-int *Fraction::getDenom() const noexcept
+int Fraction::getDenom() const noexcept
 {
-    return this->denominator;
+    return *this->denominator;
 }
 // setter
 void Fraction::setNum(int num)
@@ -89,15 +90,14 @@ void Fraction::inputFraction()
     setDenom(denom);
 }
 // Output
-void Fraction::output_Decimal() const
+void Fraction::output_Decimal() const noexcept
 {
     cout << "Phân số của bạn được viết dưới dạng số thập phân là: " << static_cast<float>(*numerator) / *denominator << '\n';
 }
-void Fraction::output_Fraction() const
+void Fraction::output_Fraction() const noexcept
 {
     cout << "Phân số của bạn là: " << *numerator << "/" << *denominator << '\n';
 }
-
 // DESTRUCTOR
 Fraction::~Fraction()
 {
