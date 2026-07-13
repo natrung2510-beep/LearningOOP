@@ -3,7 +3,19 @@
 #include <stdexcept>
 #include <cmath>
 using namespace std;
+static int gcd(int a, int b)
+{
+    a = abs(a);
+    b = abs(b);
+    while (b)
+    {
+        int r = a % b;
+        a = b;
+        b = r;
+    }
 
+    return a;
+}
 // CONSTRUCTORs
 Fraction::Fraction(int num, int denom)
 {
@@ -96,8 +108,10 @@ void Fraction::output_Decimal() const noexcept
 }
 void Fraction::output_Fraction() const noexcept
 {
-    cout << "Phân số của bạn là: " << *numerator << "/" << *denominator << '\n';
+    int GCD = gcd(*numerator, *denominator);
+    cout << "Phân số của bạn là: " << *numerator / GCD << "/" << *denominator / GCD << '\n';
 }
+
 // DESTRUCTOR
 Fraction::~Fraction()
 {
