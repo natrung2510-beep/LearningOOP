@@ -1,0 +1,3 @@
+C:/Users/Admin/Desktop/C++/Lab04_OOP/build/CMakeFiles/app_hero.dir
+C:/Users/Admin/Desktop/C++/Lab04_OOP/build/CMakeFiles/edit_cache.dir
+C:/Users/Admin/Desktop/C++/Lab04_OOP/build/CMakeFiles/rebuild_cache.dir

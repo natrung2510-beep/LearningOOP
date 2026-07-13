@@ -1,0 +1,20 @@
+[
+{
+  "directory": "C:/Users/Admin/Desktop/C++/Lab04_OOP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\app_hero.dir\\Hero.cpp.obj -c C:\\Users\\Admin\\Desktop\\C++\\Lab04_OOP\\Hero.cpp",
+  "file": "C:/Users/Admin/Desktop/C++/Lab04_OOP/Hero.cpp",
+  "output": "CMakeFiles/app_hero.dir/Hero.cpp.obj"
+},
+{
+  "directory": "C:/Users/Admin/Desktop/C++/Lab04_OOP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\app_hero.dir\\Skill.cpp.obj -c C:\\Users\\Admin\\Desktop\\C++\\Lab04_OOP\\Skill.cpp",
+  "file": "C:/Users/Admin/Desktop/C++/Lab04_OOP/Skill.cpp",
+  "output": "CMakeFiles/app_hero.dir/Skill.cpp.obj"
+},
+{
+  "directory": "C:/Users/Admin/Desktop/C++/Lab04_OOP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\app_hero.dir\\main2.cpp.obj -c C:\\Users\\Admin\\Desktop\\C++\\Lab04_OOP\\main2.cpp",
+  "file": "C:/Users/Admin/Desktop/C++/Lab04_OOP/main2.cpp",
+  "output": "CMakeFiles/app_hero.dir/main2.cpp.obj"
+}
+]
