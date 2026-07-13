@@ -58,6 +58,8 @@ Fraction Fraction::multiply(const Fraction &other) const
 
 Fraction Fraction::divide(const Fraction &other) const
 {
+    if (*other.numerator == 0)
+        throw runtime_error("Lỗi phép chia: Phân số chia có tử số bằng 0 (dẫn tới mẫu số mới bằng 0)!\n");
     int newDenom = (*this->denominator) * (*other.numerator);
     int newNum = (*this->numerator) * (*other.denominator);
 
