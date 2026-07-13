@@ -99,9 +99,20 @@ void Fraction::inputFraction()
     cout << "Mời nhập tử số:";
     cin >> num;
     setNum(num);
-    cout << "\nMời nhập mẫu số:";
-    cin >> denom;
-    setDenom(denom);
+    while (true)
+    {
+        cout << "Mời nhập mẫu số: ";
+        cin >> denom;
+        try
+        {
+            setDenom(denom);
+            break;
+        }
+        catch (const invalid_argument &e)
+        {
+            cerr << "LỖI: " << e.what() << "Vui lòng nhập lại mẫu số!\n";
+        }
+    }
 }
 // Output
 void Fraction::output_Decimal() const noexcept
