@@ -70,5 +70,4 @@ void Skill::outputSkill() const noexcept
 // DESTRUCTOR
 Skill::~Skill()
 {
-    cout << "Đã xoá kĩ năng thành công!\n";
 }
