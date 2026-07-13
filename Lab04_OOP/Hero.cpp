@@ -67,10 +67,21 @@ void Hero::setHeroLevel(unsigned int level)
 // input
 void Hero::inputHero()
 {
-    string name;
-    cout << "Mời nhập tên của Hero: ";
-    getline(cin, name);
-    setHeroName(name);
+    while (true)
+    {
+        string name;
+        cout << "Mời nhập tên của Hero: ";
+        getline(cin, name);
+        try
+        {
+            setHeroName(name);
+            break;
+        }
+        catch (const invalid_argument &e)
+        {
+            cerr << "LỖI: " << e.what() << "VUI LÒNG NHẬP LẠI!\n\n";
+        }
+    }
 
     unsigned int hp;
     cout << "\nMời nhập điểm sinh lực của Hero: ";
