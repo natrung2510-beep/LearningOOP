@@ -140,9 +140,14 @@ Fraction &Fraction::operator++()
 // decrement
 Fraction Fraction::operator--(int)
 {
+    Fraction res(*this);
+    *this->numerator = (*this->numerator) - (*this->denominator);
+    return res;
 }
 Fraction &Fraction::operator--()
 {
+    *this->numerator = (*this->numerator) - (*this->denominator);
+    return *this;
 }
 
 // input
