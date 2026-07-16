@@ -168,6 +168,7 @@ istream &operator>>(istream &in, Fraction &f)
             in >> denom;
             cin.ignore();
             f = Fraction(num, denom);
+            break;
         }
         catch (const invalid_argument &e)
         {
