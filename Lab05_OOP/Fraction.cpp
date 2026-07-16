@@ -97,10 +97,33 @@ bool Fraction::operator!=(const Fraction &other) const
 }
 
 // arithmetic assignment
-Fraction &Fraction::operator+=(const Fraction &other) {}
-Fraction &Fraction::operator-=(const Fraction &other) {}
-Fraction &Fraction::operator*=(const Fraction &other) {}
-Fraction &Fraction::operator/=(const Fraction &other) {}
+Fraction &Fraction::operator+=(const Fraction &other)
+{
+    *this->numerator = (*this->numerator) * (*other.denominator) + (*other.numerator) * (*this->denominator);
+    *this->denominator = (*this->denominator) * (*other.denominator);
+    return *this;
+}
+Fraction &Fraction::operator-=(const Fraction &other)
+{
+    *this->numerator = (*this->numerator) * (*other.denominator) - (*other.numerator) * (*this->denominator);
+    *this->denominator = (*this->denominator) * (*other.denominator);
+    return *this;
+}
+Fraction &Fraction::operator*=(const Fraction &other)
+{
+    *this->numerator = (*this->numerator) * (*other.numerator);
+    *this->denominator = (*this->denominator) * (*other.denominator);
+    return *this;
+}
+Fraction &Fraction::operator/=(const Fraction &other)
+{
+    if (*other.numerator == 0)
+        throw invalid_argument("Phân số chia phải khác 0!\n");
+
+    *this->numerator = (*this->numerator) * (*other.denominator);
+    *this->denominator = (*this->denominator) * (*other.numerator);
+    return *this;
+}
 
 // increment
 Fraction Fraction::operator++() {}
