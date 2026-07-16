@@ -5,10 +5,23 @@
 using namespace std;
 
 // CONSTRUCTORs
-Fraction::Fraction(int num, int denom) {}
-Fraction::Fraction(int num) {}
-Fraction::Fraction() {}
-Fraction::Fraction(const Fraction &other) {}
+Fraction::Fraction(int num, int denom)
+{
+    if (denom == 0)
+        throw invalid_argument("Mẫu số phải khác 0!\n");
+
+    if (denom < 0)
+    {
+        num = -num;
+        denom = -denom;
+    }
+
+    *this->numerator = num;
+    *this->denominator = denom;
+}
+Fraction::Fraction(int num) : Fraction(num, 1) {}
+Fraction::Fraction() : Fraction(1, 1) {}
+Fraction::Fraction(const Fraction &other) : Fraction(*other.numerator, *other.denominator) {}
 
 // OPERATORs
 // assignment
