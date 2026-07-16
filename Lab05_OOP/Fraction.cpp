@@ -18,8 +18,8 @@ Fraction::Fraction(int num, int denom)
         denom = -denom;
     }
 
-    *this->numerator = num;
-    *this->denominator = denom;
+    this->numerator = new int(num);
+    this->denominator = new int(denom);
 }
 Fraction::Fraction(int num) : Fraction(num, 1) {}
 Fraction::Fraction() : Fraction(1, 1) {}
