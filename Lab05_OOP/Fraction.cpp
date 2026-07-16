@@ -38,7 +38,37 @@ Fraction &Fraction::operator=(const Fraction &other)
 }
 
 // arithmetic
-Fraction Fraction::operator+(const Fraction &other) const {}
+Fraction Fraction::operator+(const Fraction &other) const
+{
+    Fraction res;
+    *res.numerator = (*this->numerator) * (*other.denominator) + (*this->denominator) * (*other.numerator);
+    *res.denominator = (*this->denominator) * (*other.denominator);
+    return res;
+}
+Fraction Fraction::operator-(const Fraction &other) const
+{
+    Fraction res;
+    *res.numerator = (*this->numerator) * (*other.denominator) - (*this->denominator) * (*other.numerator);
+    *res.denominator = (*this->denominator) * (*other.denominator);
+    return res;
+}
+Fraction Fraction::operator*(const Fraction &other) const
+{
+    Fraction res;
+    *res.numerator = (*this->numerator) * (*other.numerator);
+    *res.denominator = (*this->denominator) * (*other.denominator);
+    return res;
+}
+Fraction Fraction::operator/(const Fraction &other) const
+{
+    if (*other.numerator == 0)
+        throw invalid_argument("Phân số chia phải khác 0!\n");
+
+    Fraction res;
+    *res.numerator = (*this->numerator) * (*other.denominator);
+    *res.denominator = (*this->denominator) * (*other.numerator);
+    return res;
+}
 Fraction Fraction::operator-(const Fraction &other) const {}
 Fraction Fraction::operator*(const Fraction &other) const {}
 Fraction Fraction::operator/(const Fraction &other) const {}
