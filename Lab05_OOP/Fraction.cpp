@@ -60,4 +60,10 @@ istream operator>>(istream &in, Fraction &f) {}
 ostream operator<<(ostream &out, const Fraction &f) noexcept {}
 
 // DESTRUCTOR
-Fraction::~Fraction() {}
+Fraction::~Fraction()
+{
+    delete denominator;
+    denominator = nullptr;
+    delete numerator;
+    numerator = nullptr;
+}
