@@ -25,7 +25,17 @@ Fraction::Fraction(const Fraction &other) : Fraction(*other.numerator, *other.de
 
 // OPERATORs
 // assignment
-Fraction &Fraction::operator=(const Fraction &other) {}
+Fraction &Fraction::operator=(const Fraction &other)
+{
+    if (this == &other)
+        return;
+    delete this->numerator;
+    delete this->denominator;
+    this->numerator = new int(*other.numerator);
+    this->denominator = new int(*other.denominator);
+
+    return *this;
+}
 
 // arithmetic
 Fraction Fraction::operator+(const Fraction &other) const {}
