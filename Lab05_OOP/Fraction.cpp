@@ -126,21 +126,24 @@ Fraction &Fraction::operator/=(const Fraction &other)
 }
 
 // increment
-Fraction Fraction::operator++()
+Fraction Fraction::operator++(int)
 {
     Fraction res(*this);
     *this->numerator = (*this->numerator) + (*this->denominator);
     return res;
 }
-Fraction &Fraction::operator++(int) {}
-// decrement
-Fraction Fraction::operator--()
+Fraction &Fraction::operator++()
 {
-    Fraction res(*this);
-    *this->numerator = (*this->numerator) - (*this->denominator);
-    return res;
+    *this->numerator = (*this->numerator) + (*this->denominator);
+    return *this;
 }
-Fraction &Fraction::operator--(int) {}
+// decrement
+Fraction Fraction::operator--(int)
+{
+}
+Fraction &Fraction::operator--()
+{
+}
 
 // input
 istream operator>>(istream &in, Fraction &f) {}

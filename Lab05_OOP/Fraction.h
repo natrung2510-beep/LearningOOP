@@ -38,11 +38,11 @@ public:
     Fraction &operator/=(const Fraction &other);
 
     // increment
-    Fraction operator++();
-    Fraction &operator++(int);
+    Fraction operator++(int);
+    Fraction &operator++();
     // decrement
-    Fraction operator--();
-    Fraction &operator--(int);
+    Fraction operator--(int);
+    Fraction &operator--();
 
     // input
     friend std::istream operator>>(std::istream &in, Fraction &f);
