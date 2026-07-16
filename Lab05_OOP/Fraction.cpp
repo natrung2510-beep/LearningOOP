@@ -69,17 +69,32 @@ Fraction Fraction::operator/(const Fraction &other) const
     *res.denominator = (*this->denominator) * (*other.numerator);
     return res;
 }
-Fraction Fraction::operator-(const Fraction &other) const {}
-Fraction Fraction::operator*(const Fraction &other) const {}
-Fraction Fraction::operator/(const Fraction &other) const {}
 
 // comparison
-bool Fraction::operator<(const Fraction &other) const {}
-bool Fraction::operator>(const Fraction &other) const {}
-bool Fraction::operator<=(const Fraction &other) const {}
-bool Fraction::operator>=(const Fraction &other) const {}
-bool Fraction::operator==(const Fraction &other) const {}
-bool Fraction::operator!=(const Fraction &other) const {}
+bool Fraction::operator<(const Fraction &other) const
+{
+    return (*this->numerator) * (*other.denominator) < (*this->denominator) * (*other.numerator);
+}
+bool Fraction::operator>(const Fraction &other) const
+{
+    return (*this->numerator) * (*other.denominator) > (*this->denominator) * (*other.numerator);
+}
+bool Fraction::operator<=(const Fraction &other) const
+{
+    return !operator>(other);
+}
+bool Fraction::operator>=(const Fraction &other) const
+{
+    return !operator<(other);
+}
+bool Fraction::operator==(const Fraction &other) const
+{
+    return (*this->numerator) * (*other.denominator) == (*this->denominator) * (*other.numerator);
+}
+bool Fraction::operator!=(const Fraction &other) const
+{
+    return !operator==(other);
+}
 
 // arithmetic assignment
 Fraction &Fraction::operator+=(const Fraction &other) {}
