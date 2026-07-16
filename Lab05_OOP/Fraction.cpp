@@ -174,10 +174,14 @@ istream &operator>>(istream &in, Fraction &f)
             cerr << "LỖI: " << e.what() << "VUI LÒNG NHẬP LẠI!\n";
         }
     }
+    return in;
 }
 // output
 ostream &operator<<(ostream &out, Fraction &f) noexcept
 {
+    f.simplifyFraction();
+    out << "Phân số của bạn là: " << *f.numerator << '/' << *f.denominator;
+    return out;
 }
 // OPERATIONs
 void Fraction::simplifyFraction()
