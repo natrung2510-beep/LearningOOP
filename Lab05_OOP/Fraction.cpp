@@ -30,7 +30,7 @@ Fraction::Fraction(const Fraction &other) : Fraction(*other.numerator, *other.de
 Fraction &Fraction::operator=(const Fraction &other)
 {
     if (this == &other)
-        return;
+        return *this;
     delete this->numerator;
     delete this->denominator;
     this->numerator = new int(*other.numerator);
