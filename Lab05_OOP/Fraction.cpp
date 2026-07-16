@@ -153,7 +153,7 @@ Fraction &Fraction::operator--()
 }
 
 // input
-istream operator>>(istream &in, Fraction &f)
+istream &operator>>(istream &in, Fraction &f)
 {
     int num;
     cout << "Mời nhập tử số: ";
@@ -176,7 +176,7 @@ istream operator>>(istream &in, Fraction &f)
     }
 }
 // output
-ostream operator<<(ostream &out, const Fraction &f) noexcept
+ostream &operator<<(ostream &out, Fraction &f) noexcept
 {
 }
 // OPERATIONs

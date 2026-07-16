@@ -47,9 +47,9 @@ public:
     Fraction &operator--();
 
     // input
-    friend std::istream operator>>(std::istream &in, Fraction &f);
+    friend std::istream &operator>>(std::istream &in, Fraction &f);
     // output
-    friend std::ostream operator<<(std::ostream &out, const Fraction &f) noexcept;
+    friend std::ostream &operator<<(std::ostream &out, Fraction &f) noexcept;
 
     // DESTRUCTOR
     ~Fraction();
