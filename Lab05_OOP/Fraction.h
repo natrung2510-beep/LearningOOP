@@ -6,6 +6,8 @@ private:
     int *numerator;
     int *denominator;
 
+    void simplifyFraction() noexcept;
+
 public:
     // CONSTRUCTORs
     Fraction(int num, int denom);

@@ -2,6 +2,8 @@
 #include <stdexcept>
 #include <string>
 #include "Fraction.h"
+#include <cmath>
+#include <numeric>
 using namespace std;
 
 // CONSTRUCTORs
@@ -174,8 +176,19 @@ istream operator>>(istream &in, Fraction &f)
     }
 }
 // output
-ostream operator<<(ostream &out, const Fraction &f) noexcept {}
-
+ostream operator<<(ostream &out, const Fraction &f) noexcept
+{
+}
+// OPERATIONs
+void Fraction::simplifyFraction()
+{
+    int GCD = gcd(abs(*this->denominator), abs(*this->numerator));
+    if (GCD > 1)
+    {
+        *this->numerator /= GCD;
+        *this->denominator /= GCD;
+    }
+}
 // DESTRUCTOR
 Fraction::~Fraction()
 {
