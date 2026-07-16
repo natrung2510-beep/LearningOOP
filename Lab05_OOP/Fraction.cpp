@@ -151,7 +151,28 @@ Fraction &Fraction::operator--()
 }
 
 // input
-istream operator>>(istream &in, Fraction &f) {}
+istream operator>>(istream &in, Fraction &f)
+{
+    int num;
+    cout << "Mời nhập tử số: ";
+    in >> num;
+    cin.ignore();
+    while (true)
+    {
+        cout << "Mời nhập mẫu số: ";
+        try
+        {
+            int denom;
+            in >> denom;
+            cin.ignore();
+            Fraction(num, denom);
+        }
+        catch (const invalid_argument &e)
+        {
+            cerr << "LỖI: " << e.what() << "VUI LÒNG NHẬP LẠI!\n";
+        }
+    }
+}
 // output
 ostream operator<<(ostream &out, const Fraction &f) noexcept {}
 
