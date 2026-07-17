@@ -30,7 +30,14 @@ MyIntArray &MyIntArray::operator=(const MyIntArray &other)
     return *this;
 }
 // plus
-MyIntArray MyIntArray::operator+(const MyIntArray &other) {}
+MyIntArray MyIntArray::operator+(const MyIntArray &other)
+{
+    MyIntArray res;
+    for (int i = 0; i < res.size; i++)
+        res.data[i] = this->data[i] + other.data[i];
+
+    return res;
+}
 // prefix increment
 MyIntArray &MyIntArray::operator++() {}
 // postfix increment
