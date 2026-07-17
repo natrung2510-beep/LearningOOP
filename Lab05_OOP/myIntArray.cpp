@@ -14,6 +14,13 @@ MyIntArray::MyIntArray(int size, int default_value)
     else
         data = nullptr;
 }
+MyIntArray::MyIntArray(const MyIntArray &other)
+{
+    delete[] this->data;
+    this->data = new int[other.size];
+    for (int i = 0; i < other.size; i++)
+        this->data[i] = other.data[i];
+}
 
 // OPERATORs
 // assigment
@@ -45,4 +52,4 @@ MyIntArray MyIntArray::operator++(int) {}
 // input
 istream &operator>>(istream &in, MyIntArray &array) {}
 // output
-ostream &operator<<(ostream &out, const MyIntArray &array) {}
+ostream &operator<<(ostream &out, const MyIntArray &array) noexcept {}
