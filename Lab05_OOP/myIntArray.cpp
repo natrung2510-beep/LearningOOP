@@ -19,6 +19,15 @@ MyIntArray::MyIntArray(int size, int default_value)
 // assigment
 MyIntArray &MyIntArray::operator=(const MyIntArray &other)
 {
+    if (this == &other)
+        return *this;
+
+    delete[] this->data;
+    int newSize = other.size;
+    this->data = new int[newSize];
+    for (int i = 0; i < newSize; i++)
+        this->data[i] = other.data[i];
+    return *this;
 }
 // plus
 MyIntArray MyIntArray::operator+(const MyIntArray &other) {}
