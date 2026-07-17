@@ -7,6 +7,14 @@ using namespace std;
 // CONSTRUCTORs
 MyIntArray::MyIntArray(int size, int default_value)
 {
+    if (size < 0)
+        throw invalid_argument("Kích thước mảnng không thể là một số âm!");
+    if (size > 0)
+        data = new int[size];
+    else
+        data = nullptr;
+    for (int i = 0; i < size; i++)
+        data[i] = default_value;
 }
 
 // OPERATORs
