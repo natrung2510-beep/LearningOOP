@@ -48,7 +48,14 @@ MyIntArray MyIntArray::operator+(const MyIntArray &other)
 // prefix increment
 MyIntArray &MyIntArray::operator++() {}
 // postfix increment
-MyIntArray MyIntArray::operator++(int) {}
+MyIntArray MyIntArray::operator++(int)
+{
+    MyIntArray res(*this);
+    for (int i = 0; i < this->size; i++)
+        this->data[i]++;
+
+    return res;
+}
 // input
 istream &operator>>(istream &in, MyIntArray &array) {}
 // output
