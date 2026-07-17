@@ -63,6 +63,27 @@ MyIntArray MyIntArray::operator++(int)
     return res;
 }
 // input
-istream &operator>>(istream &in, MyIntArray &array) {}
+istream &operator>>(istream &in, MyIntArray &array)
+{
+    cout << "Mời nhập kích thước cho mảng:";
+    cin >> array.size;
+    cin.ignore();
+
+    if (array.size < 0)
+        throw invalid_argument("Kích thước mảnng không thể là một số âm!");
+    else if (array.size == 0)
+    {
+        cout << "Mảng hiện tại đang rỗng!\n";
+        return in;
+    }
+
+    for (int i = 0; i < array.size; i++)
+    {
+        cout << "Mời nhập phần tử thứ " << i + 1 << ":";
+        cin >> array.data[i];
+        cin.ignore();
+        cout << '\n';
+    }
+}
 // output
 ostream &operator<<(ostream &out, const MyIntArray &array) noexcept {}
