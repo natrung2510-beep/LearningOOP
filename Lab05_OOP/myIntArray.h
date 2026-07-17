@@ -10,7 +10,7 @@ private:
 public:
     // CONSTRUCTORs
     MyIntArray(int size = 0, int default_value = 0);
-
+    MyIntArray(const MyIntArray &other);
     // OPERATORs
     // assigment
     MyIntArray &operator=(const MyIntArray &other);
@@ -23,5 +23,8 @@ public:
     // input
     friend std::istream &operator>>(std::istream &in, MyIntArray &array);
     // output
-    friend std::ostream &operator<<(std::ostream &out, const MyIntArray &array);
+    friend std::ostream &operator<<(std::ostream &out, const MyIntArray &array) noexcept;
+
+    // DESTRUCTOR
+    ~MyIntArray();
 };
