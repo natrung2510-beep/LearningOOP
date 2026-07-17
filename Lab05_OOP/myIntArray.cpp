@@ -10,16 +10,16 @@ MyIntArray::MyIntArray(int size, int default_value)
     if (size < 0)
         throw invalid_argument("Kích thước mảnng không thể là một số âm!");
     if (size > 0)
-        data = new int[size];
+        data = new int[size]{default_value};
     else
         data = nullptr;
-    for (int i = 0; i < size; i++)
-        data[i] = default_value;
 }
 
 // OPERATORs
 // assigment
-MyIntArray &MyIntArray::operator=(const MyIntArray &other) {}
+MyIntArray &MyIntArray::operator=(const MyIntArray &other)
+{
+}
 // plus
 MyIntArray MyIntArray::operator+(const MyIntArray &other) {}
 // prefix increment
