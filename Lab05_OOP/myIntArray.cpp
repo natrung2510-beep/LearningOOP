@@ -97,3 +97,10 @@ ostream &operator<<(ostream &out, const MyIntArray &array) noexcept
     out << array.data[array.size - 1] << "]\n";
     return out;
 }
+
+// DESTRUCTOR
+MyIntArray::~MyIntArray()
+{
+    delete[] data;
+    data = nullptr;
+}
