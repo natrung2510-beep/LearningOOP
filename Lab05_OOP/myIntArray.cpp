@@ -86,4 +86,14 @@ istream &operator>>(istream &in, MyIntArray &array)
     }
 }
 // output
-ostream &operator<<(ostream &out, const MyIntArray &array) noexcept {}
+ostream &operator<<(ostream &out, const MyIntArray &array) noexcept
+{
+    out << "Mảng hiện tại của bạn có " << array.size << "phần tử.\n";
+    out << "[";
+    for (int i = 0; i < array.size - 1; i++)
+    {
+        out << array.data[i] << ", ";
+    }
+    out << array.data[array.size - 1] << "]\n";
+    return out;
+}
