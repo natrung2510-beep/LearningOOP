@@ -5,8 +5,9 @@
 using namespace std;
 
 // CONSTRUCTORs
-MyIntArray::MyIntArray(int size = 0) {}
-MyIntArray::MyIntArray(int size, int default_value) {}
+MyIntArray::MyIntArray(int size, int default_value)
+{
+}
 
 // OPERATORs
 // assigment

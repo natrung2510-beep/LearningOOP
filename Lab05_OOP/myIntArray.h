@@ -9,8 +9,7 @@ private:
 
 public:
     // CONSTRUCTORs
-    MyIntArray(int size = 0);
-    MyIntArray(int size, int default_value);
+    MyIntArray(int size = 0, int default_value = 0);
 
     // OPERATORs
     // assigment
