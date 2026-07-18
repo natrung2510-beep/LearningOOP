@@ -15,7 +15,7 @@ public:
     // assigment
     MyIntArray &operator=(const MyIntArray &other);
     // plus
-    MyIntArray operator+(const MyIntArray &other);
+    MyIntArray operator+(const MyIntArray &other) const;
     // prefix increment
     MyIntArray &operator++();
     // postfix increment
