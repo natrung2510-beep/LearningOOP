@@ -24,7 +24,6 @@ MyIntArray::MyIntArray(int size, int default_value)
 MyIntArray::MyIntArray(const MyIntArray &other)
 {
     this->size = other.size;
-    delete[] this->data;
     this->data = new int[other.size];
     for (int i = 0; i < other.size; i++)
         this->data[i] = other.data[i];
