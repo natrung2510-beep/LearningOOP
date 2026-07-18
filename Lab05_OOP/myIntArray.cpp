@@ -2,6 +2,7 @@
 #include <string>
 #include "myIntArray.h"
 #include <stdexcept>
+#include <algorithm>
 using namespace std;
 
 // CONSTRUCTORs
@@ -46,10 +47,25 @@ MyIntArray &MyIntArray::operator=(const MyIntArray &other)
 // plus
 MyIntArray MyIntArray::operator+(const MyIntArray &other) const
 {
-    MyIntArray res;
-    for (int i = 0; i < res.size; i++)
+    int minimum_size = min(this->size, other.size);
+    int maximum_size = max(this->size, other.size);
+    MyIntArray res(maximum_size);
+    for (int i = 0; i < minimum_size; i++)
         res.data[i] = this->data[i] + other.data[i];
 
+    if (maximum_size == minimum_size)
+        return res;
+
+    if (this->size == maximum_size)
+    {
+        for (int i = minimum_size; i < maximum_size; i++)
+            res.data[i] = this->data[i];
+    }
+    else
+    {
+        for (int i = minimum_size; i < maximum_size; i++)
+            res.data[i] = other.data[i];
+    }
     return res;
 }
 // prefix increment
