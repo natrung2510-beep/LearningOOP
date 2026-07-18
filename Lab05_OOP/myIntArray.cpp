@@ -9,9 +9,10 @@ MyIntArray::MyIntArray(int size, int default_value)
 {
     if (size < 0)
         throw invalid_argument("Kích thước mảnng không thể là một số âm!");
+
+    this->size = size;
     if (size > 0)
     {
-        this->size = size;
         data = new int[size];
         for (int i = 0; i < size; i++)
             data[i] = default_value;
@@ -36,9 +37,9 @@ MyIntArray &MyIntArray::operator=(const MyIntArray &other)
         return *this;
 
     delete[] this->data;
-    int newSize = other.size;
-    this->data = new int[newSize];
-    for (int i = 0; i < newSize; i++)
+    this->size = other.size;
+    this->data = new int[other.size];
+    for (int i = 0; i < other.size; i++)
         this->data[i] = other.data[i];
     return *this;
 }
