@@ -10,7 +10,12 @@ MyIntArray::MyIntArray(int size, int default_value)
     if (size < 0)
         throw invalid_argument("Kích thước mảnng không thể là một số âm!");
     if (size > 0)
-        data = new int[size]{default_value};
+    {
+        this->size = size;
+        data = new int[size];
+        for (int i = 0; i < size; i++)
+            data[i] = default_value;
+    }
     else
         data = nullptr;
 }
@@ -37,7 +42,7 @@ MyIntArray &MyIntArray::operator=(const MyIntArray &other)
     return *this;
 }
 // plus
-MyIntArray MyIntArray::operator+(const MyIntArray &other)
+MyIntArray MyIntArray::operator+(const MyIntArray &other) const
 {
     MyIntArray res;
     for (int i = 0; i < res.size; i++)
