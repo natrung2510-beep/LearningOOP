@@ -17,11 +17,11 @@ Matrix::Matrix(int rows, int cols, int default_value) : rows(rows), cols(cols)
 
     data = new int *[rows];
     for (int i = 0; i < rows; i++)
+    {
         data[i] = new int[cols];
-
-    for (int i = 0; i < rows; i++)
         for (int j = 0; j < cols; j++)
             data[i][j] = default_value;
+    }
 }
 Matrix::Matrix(const Matrix &other) {}
 
