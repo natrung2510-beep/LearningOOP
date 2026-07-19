@@ -2,28 +2,78 @@
 #include <stdexcept>
 #include <algorithm>
 #include "Matrix.h"
+#include <string>
 using namespace std;
 
 // Constructors
-Matrix::Matrix(int rows, int cols, int default_value) : rows(rows), cols(cols)
+Matrix::Matrix(int rows, int cols, int default_value) : rows(rows), cols(cols), data(nullptr)
 {
-    if (rows <= 0 || cols <= 0)
-    {
-        this->rows = 0;
-        this->cols = 0;
-        data = nullptr;
-        return;
-    }
+    string exceptionLog = "";
+    if (rows < 0)
+        exceptionLog += "Số hàng của ma trận phải lớn hơn hoặc bằng 0!";
 
-    data = new int *[rows];
-    for (int i = 0; i < rows; i++)
+    exceptionLog += (exceptionLog.empty()) ? "" : "\n";
+
+    if (cols < 0)
+        exceptionLog += "Số cột của ma trận phải lớn hơn hoặc bằng 0!";
+
+    if (!exceptionLog.empty())
+        throw invalid_argument(exceptionLog);
+    int break_point = -1;
+    try
     {
-        data[i] = new int[cols];
-        for (int j = 0; j < cols; j++)
-            data[i][j] = default_value;
+        this->data = new int *[rows];
+        for (int i = 0; i < rows; i++)
+        {
+            break_point = i;
+            data[i] = new int[cols];
+            for (int j = 0; j < cols; j++)
+                data[i][j] = default_value;
+        }
+    }
+    catch (...)
+    {
+        for (int k = 0; k < break_point; k++)
+            delete[] this->data[k];
+        delete[] this->data;
+        this->data = nullptr;
+        throw;
     }
 }
-Matrix::Matrix(const Matrix &other) {}
+Matrix::Matrix(const Matrix &other) : rows(other.rows), cols(other.cols), data(nullptr)
+{
+    string exceptionLog = "";
+    if (rows < 0)
+        exceptionLog += "Số hàng của ma trận phải lớn hơn hoặc bằng 0!";
+
+    exceptionLog += (exceptionLog.empty()) ? "" : "\n";
+
+    if (cols < 0)
+        exceptionLog += "Số cột của ma trận phải lớn hơn hoặc bằng 0!";
+
+    if (!exceptionLog.empty())
+        throw invalid_argument(exceptionLog);
+    int break_point = -1;
+    try
+    {
+        this->data = new int *[this->rows];
+        for (int i = 0; i < this->rows; i++)
+        {
+            break_point = i;
+            this->data[i] = new int[cols];
+            for (int j = 0; j < cols; j++)
+                this->data[i][j] = other.data[i][j];
+        }
+    }
+    catch (...)
+    {
+        for (int k = 0; k < break_point; k++)
+            delete[] this->data[k];
+        delete[] this->data;
+        this->data = nullptr;
+        throw;
+    }
+}
 
 // OPERATORs
 // assignment
