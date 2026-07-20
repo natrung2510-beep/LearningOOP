@@ -13,7 +13,6 @@ Matrix::Matrix(int rows, int cols, int default_value) : rows(rows), cols(cols), 
         exceptionLog += "Số hàng của ma trận phải lớn hơn hoặc bằng 0!";
 
     exceptionLog += (exceptionLog.empty()) ? "" : "\n";
-
     if (cols < 0)
         exceptionLog += "Số cột của ma trận phải lớn hơn hoặc bằng 0!";
 
@@ -77,7 +76,38 @@ Matrix::Matrix(const Matrix &other) : rows(other.rows), cols(other.cols), data(n
 
 // OPERATORs
 // assignment
-Matrix &Matrix::operator=(const Matrix &other) {}
+Matrix &Matrix::operator=(const Matrix &other)
+{
+    if (this == &other)
+        return *this;
+
+    this->rows = other.rows;
+    this->cols = other.cols;
+    delete[] this->data;
+    this->data = nullptr;
+    int break_point = -1;
+    try
+    {
+        this->data = new int *[this->rows];
+        for (int i = 0; i < rows; i++)
+        {
+            break_point = i;
+            this->data[i] = new int[this->cols];
+            for (int j = 0; j < this->cols; j++)
+                this->data[i][j] = other.data[i][j];
+        }
+    }
+    catch (...)
+    {
+        for (int k = 0; k < break_point; k++)
+            delete[] this->data[k];
+        delete[] this->data;
+        this->data = nullptr;
+        throw;
+    }
+
+    return *this;
+}
 Matrix Matrix::operator+(const Matrix &other) const {}
 Matrix Matrix::operator*(const Matrix &other) const {}
 int &Matrix::operator()(int row_idx, int col_idx) noexcept {}
