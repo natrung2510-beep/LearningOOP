@@ -164,7 +164,19 @@ Matrix Matrix::operator+(const Matrix &other) const
 
     return res;
 }
-Matrix Matrix::operator*(const Matrix &other) const {}
+Matrix Matrix::operator*(const Matrix &other) const
+{
+    if (this->cols != other.rows)
+        throw invalid_argument("LỖI: Số cột của ma trận trước phải bằng số dòng của ma trận sau!");
+
+    Matrix res(this->rows, other.cols);
+    for (int i = 0; i < this->rows; i++)
+        for (int j = 0; j < other.cols; j++)
+            for (int k = 0; k < this->cols; k++)
+                res.data[i][j] += this->data[i][k] * other.data[k][j];
+
+    return res;
+}
 int &Matrix::operator()(int row_idx, int col_idx) noexcept {}
 int Matrix::operator()(int row_idx, int col_idx) const noexcept {}
 istream &operator>>(istream &in, Matrix &mat) {}
