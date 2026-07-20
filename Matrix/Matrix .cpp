@@ -185,8 +185,33 @@ int Matrix::operator()(int row_idx, int col_idx) const noexcept
 {
     return this->data[row_idx][col_idx];
 }
-istream &operator>>(istream &in, Matrix &mat) {}
-ostream &operator<<(ostream &out, const Matrix &mat) {}
+istream &operator>>(istream &in, Matrix &mat)
+{
+    int newRows;
+    cout << "Mời nhập số dòng: ";
+    in >> newRows;
+
+    int newCols;
+    cout << "\nMời nhập số cột: ";
+    in >> newCols;
+
+    Matrix tempMat(newRows, newCols);
+    for (int i = 0; i < newRows; i++)
+    {
+        for (int j = 0; j < newCols; j++)
+        {
+            cout << "+, a" << i << j << " = ";
+            in >> tempMat.data[i][j];
+            cout << '\n';
+        }
+    }
+    mat = tempMat;
+    return in;
+}
+ostream &operator<<(ostream &out, const Matrix &mat)
+{
+    return out;
+}
 
 // DESTRUCTOR
 Matrix::~Matrix() {}
