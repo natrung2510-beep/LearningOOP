@@ -21,7 +21,7 @@ public:
     int &operator()(int row_idx, int col_idx) noexcept;
     int operator()(int row_idx, int col_idx) const noexcept;
     friend std::istream &operator>>(std::istream &in, Matrix &mat);
-    friend std::ostream &operator<<(std::ostream &out, const Matrix &mat);
+    friend std::ostream &operator<<(std::ostream &out, const Matrix &mat) noexcept;
 
     // DESTRUCTOR
     ~Matrix();

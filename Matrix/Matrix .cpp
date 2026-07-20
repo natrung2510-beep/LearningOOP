@@ -3,6 +3,7 @@
 #include <algorithm>
 #include "Matrix.h"
 #include <string>
+#include <iomanip>
 using namespace std;
 
 // Constructors
@@ -210,8 +211,25 @@ istream &operator>>(istream &in, Matrix &mat)
 }
 ostream &operator<<(ostream &out, const Matrix &mat)
 {
+    if (mat.rows == 0 || mat.cols == 0 || mat.data == nullptr)
+    {
+        out << "[Ma trận rỗng]\n";
+        return out;
+    }
+
+    for (int i = 0; i < mat.rows; i++)
+    {
+        for (int j = 0; j < mat.cols; j++)
+        {
+            out << setw(5) << mat.data[i][j] << " ";
+        }
+        out << '\n';
+    }
+
     return out;
 }
 
 // DESTRUCTOR
-Matrix::~Matrix() {}
+Matrix::~Matrix()
+{
+}
