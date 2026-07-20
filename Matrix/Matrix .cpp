@@ -177,8 +177,14 @@ Matrix Matrix::operator*(const Matrix &other) const
 
     return res;
 }
-int &Matrix::operator()(int row_idx, int col_idx) noexcept {}
-int Matrix::operator()(int row_idx, int col_idx) const noexcept {}
+int &Matrix::operator()(int row_idx, int col_idx) noexcept
+{
+    return this->data[row_idx][col_idx];
+}
+int Matrix::operator()(int row_idx, int col_idx) const noexcept
+{
+    return this->data[row_idx][col_idx];
+}
 istream &operator>>(istream &in, Matrix &mat) {}
 ostream &operator<<(ostream &out, const Matrix &mat) {}
 
