@@ -232,4 +232,14 @@ ostream &operator<<(ostream &out, const Matrix &mat)
 // DESTRUCTOR
 Matrix::~Matrix()
 {
+    if (!this->data)
+        return;
+
+    for (int i = 0; i < this->rows; i++)
+        delete[] this->data[i];
+    delete[] this->data;
+
+    this->data = nullptr;
+    this->cols = 0;
+    this->rows = 0;
 }
