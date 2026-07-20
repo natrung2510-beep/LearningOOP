@@ -151,7 +151,19 @@ Matrix &Matrix::operator=(const Matrix &other)
 
 //     return *this;
 // }
-Matrix Matrix::operator+(const Matrix &other) const {}
+Matrix Matrix::operator+(const Matrix &other) const
+{
+
+    if (this->rows != other.rows || this->cols != other.cols)
+        throw invalid_argument("Hai ma trận phải cùng kích thước mới có thể cộng!");
+
+    Matrix res(this->rows, this->cols);
+    for (int i = 0; i < this->rows; i++)
+        for (int j = 0; j < this->cols; j++)
+            res.data[i][j] = this->data[i][j] + other.data[i][j];
+
+    return res;
+}
 Matrix Matrix::operator*(const Matrix &other) const {}
 int &Matrix::operator()(int row_idx, int col_idx) noexcept {}
 int Matrix::operator()(int row_idx, int col_idx) const noexcept {}
