@@ -81,33 +81,76 @@ Matrix &Matrix::operator=(const Matrix &other)
     if (this == &other)
         return *this;
 
-    this->rows = other.rows;
-    this->cols = other.cols;
-    delete[] this->data;
-    this->data = nullptr;
+    if (other.rows == 0 || other.cols == 0)
+    {
+        if (this->data != nullptr)
+        {
+            for (int i = 0; i < this->rows; i++)
+                delete[] this->data[i];
+            delete[] this->data;
+        }
+        this->rows = 0;
+        this->cols = 0;
+        this->data = nullptr;
+        return *this;
+    }
+
+    int **tempPtr = nullptr;
     int break_point = -1;
     try
     {
-        this->data = new int *[this->rows];
+        tempPtr = new int *[other.rows];
         for (int i = 0; i < rows; i++)
         {
             break_point = i;
-            this->data[i] = new int[this->cols];
-            for (int j = 0; j < this->cols; j++)
-                this->data[i][j] = other.data[i][j];
+            tempPtr[i] = new int[other.cols];
+            for (int j = 0; j < other.cols; j++)
+                tempPtr[i][j] = other.data[i][j];
         }
     }
     catch (...)
     {
         for (int k = 0; k < break_point; k++)
-            delete[] this->data[k];
-        delete[] this->data;
-        this->data = nullptr;
+            delete[] tempPtr[k];
+        delete[] tempPtr;
+        tempPtr = nullptr;
         throw;
     }
+    if (this->data)
+    {
+        for (int i = 0; i < rows; i++)
+            delete[] this->data[i];
+        delete[] this->data;
+    }
+
+    this->rows = other.rows;
+    this->cols = other.cols;
+    this->data = tempPtr;
 
     return *this;
 }
+// Bản tối ưu
+//  Matrix& Matrix::operator=(const Matrix& other){
+//      if (this == &other)
+//          return *this;
+
+//     auto temp(other);
+//     swap(this->rows, temp.rows);
+//     swap(this->cols, temp.cols);
+//     swap(this->data, temp.data);
+
+//     return *this;
+// }
+// Matrix& Matrix::operator=(Matrix other){
+//     if (this == &other)
+//         return *this;
+
+//     swap(this->rows, other.rows);
+//     swap(this->cols, other.cols);
+//     swap(this->data, other.data);
+
+//     return *this;
+// }
 Matrix Matrix::operator+(const Matrix &other) const {}
 Matrix Matrix::operator*(const Matrix &other) const {}
 int &Matrix::operator()(int row_idx, int col_idx) noexcept {}
